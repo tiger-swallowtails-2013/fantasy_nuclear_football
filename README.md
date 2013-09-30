@@ -13,7 +13,6 @@
 Objective: Create a fanasty site where users can manage a 'team' of politicians in competition against other 'teams' in a league. Points are awarded based on various measurable statistics that are created from the glorious American political system.
 
 ### Resources ###
-This is [an example](http://example.com/ "Title") inline link.
 * Rubydocs [Cabybara documentation](http://rubydoc.info/gems/capybara/2.1.0/frames)
 * [Integration](http://www.sinatrarb.com/testing.html) with Sinatra
 * More [integration](http://www.noppanit.com/cucumber-capybara-sinatra/)
