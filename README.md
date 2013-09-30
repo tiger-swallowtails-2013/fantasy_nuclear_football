@@ -1,5 +1,7 @@
 # Fantasy Nuclear Football #
 
+![Alt text](./public/fighting_politicians_14.jpg)
+
 ## Team Members ##
 * Sen RaoRao
 * Nick 'the quick' Scricco
