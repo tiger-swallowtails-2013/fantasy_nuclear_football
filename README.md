@@ -1,7 +1,7 @@
 # Fantasy Nuclear Football #
 
 ## Team Members ##
-* RaoRao
+* Sen RaoRao
 * Nick 'the quick' Scricco
 * David 'Manning' Reiman
 * The artist formally known as Bruno
