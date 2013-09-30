@@ -6,6 +6,7 @@ require 'politician'
 require 'user'
 
 require 'sinatra'
+require 'sinatra/activerecord'
 
-
-ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
+ENV['RACK_ENV'] == 'test' ? DB_NAME = 'fantasy_test' : DB_NAME = 'fantasy' 
+ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || "postgres://localhost/#{DB_NAME}")
