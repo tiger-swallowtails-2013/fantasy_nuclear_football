@@ -15,7 +15,7 @@ module Spec
 		Sinatra::Application
 	end
 
-	Rspec.configure do |config|
+	RSpec.configure do |config|
 		config.before do
 			League.destroy_all
 			Politician.destroy_all
