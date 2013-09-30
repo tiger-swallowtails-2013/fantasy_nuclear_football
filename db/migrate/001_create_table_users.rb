@@ -1,2 +1,2 @@
-class CreateTableUsers < ActiveRecord:Migration
+class CreateTableUsers < ActiveRecord::Migration
 end
