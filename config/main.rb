@@ -6,3 +6,6 @@ require 'politician'
 require 'user'
 
 require 'sinatra'
+
+
+ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
