@@ -4,6 +4,9 @@ ENV['RACK_ENV'] = 'test'
 require 'config/main'
 require 'rack/test'
 require 'shoulda-matchers'
+require 'capybara/rspec'
+
+Capybara.app = Sinatra::Application
 
 set :raise_errors, true
 set :dump_errors, true

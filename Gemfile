@@ -15,4 +15,5 @@ group :development, :test do
   gem 'rack-test'
   gem 'jasmine'
   gem 'shoulda-matchers'
+  gem 'capybara'
 end
