@@ -11,7 +11,7 @@ get '/' do
 end
 
 get '/users/:id' do
-  @local_user = User.find(params[:id])
+  @queried_user = User.find(params[:id])
   erb :users
 
 end
