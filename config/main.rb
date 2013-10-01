@@ -1,13 +1,14 @@
 $LOAD_PATH.unshift(File.expand_path('.'))
 $LOAD_PATH.unshift(File.expand_path('./app/models/'))
 
+require 'sinatra'
+require 'sinatra/activerecord'
+require 'dotenv'
+
+require 'team'
 require 'league'
 require 'politician'
 require 'user'
-require 'dotenv'
-
-require 'sinatra'
-require 'sinatra/activerecord'
 
 Dotenv.load('.env')
 
