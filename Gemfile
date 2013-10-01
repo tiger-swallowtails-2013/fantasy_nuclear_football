@@ -3,10 +3,10 @@ ruby '1.9.3'
 
 gem 'sinatra'
 gem 'sinatra-activerecord'
+gem 'dotenv'
 gem 'omniauth'
 gem 'omniauth-facebook', '1.4.0'
 gem 'pg'
-gem 'dotenv'
 
 group :development, :test do
   gem 'shotgun'
