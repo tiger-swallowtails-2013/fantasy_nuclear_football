@@ -11,4 +11,5 @@ group :development, :test do
   gem 'rspec'
   gem 'rack-test'
   gem 'jasmine'
+  gem 'shoulda-matchers'
 end
