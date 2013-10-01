@@ -6,7 +6,6 @@ require 'sinatra/activerecord'
 require 'dotenv'
 
 require 'team'
-require 'league'
 require 'politician'
 require 'user'
 
