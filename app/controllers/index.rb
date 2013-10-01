@@ -6,14 +6,14 @@ require 'config/main'
 enable :sessions
 
 get '/' do
-  @users = User.all
-  @users.map! do |user| 
-    {username: user.username, 
-    firstname: user.firstname,
-    lastname: user.lastname,
-    email: user.email}
-  end
+  @all_users = User.all
   erb :index
+end
+
+get '/users/:id' do
+  @local_user = User.find(params[:id])
+  erb :users
+
 end
 
 get '/auth/facebook/callback' do
