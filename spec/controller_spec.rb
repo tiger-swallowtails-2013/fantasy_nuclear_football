@@ -36,7 +36,7 @@ describe 'user page' do
     get "/users/#{@test_user.id}"
   end
 
-   after(:each) do
+  after(:each) do
     @test_user.destroy
   end
 

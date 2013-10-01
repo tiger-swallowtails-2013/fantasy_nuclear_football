@@ -6,6 +6,13 @@ require 'config/main'
 enable :sessions
 
 get '/' do
+  @users = User.all
+  @users.map! do |user| 
+    {username: user.username, 
+    firstname: user.firstname,
+    lastname: user.lastname,
+    email: user.email}
+  end
   erb :index
 end
 
