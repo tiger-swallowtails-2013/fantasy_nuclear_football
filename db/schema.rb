@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 3) do
     t.string   "lastname"
     t.string   "username"
     t.string   "email"
-    t.string   "password"
     t.string   "facebook_id"
     t.datetime "created_at"
     t.datetime "updated_at"
