@@ -1,2 +1,2 @@
-class Politician
+class Politician < ActiveRecord::Base
 end
