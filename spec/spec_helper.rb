@@ -3,6 +3,7 @@ ENV['RACK_ENV'] = 'test'
 
 require 'config/main'
 require 'rack/test'
+require 'shoulda-matchers'
 
 set :raise_errors, true
 set :dump_errors, true
@@ -13,14 +14,5 @@ module Spec
 
 	def app
 		Sinatra::Application
-	end
-
-	RSpec.configure do |config|
-		config.before do
-			League.destroy_all
-			Politician.destroy_all
-			Team.destroy_all
-			User.destroy_all
-		end
 	end
 end
