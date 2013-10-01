@@ -11,7 +11,12 @@ end
 
 get '/auth/facebook/callback' do
   session[:user_id] = User.find_or_create_by(prepared_user_data).id
-  "Create User with facebook Id of #{auth_hash[:uid]}"
+  redirect '/'
+end
+
+get '/logout' do
+  session.clear
+  redirect '/'
 end
 
 helpers do
@@ -30,6 +35,10 @@ helpers do
   end
 
   def current_user
-    @user ||= User.find(session[:user_id])
+    if session[:user_id]
+      @user ||= User.find(session[:user_id])
+    else
+      nil
+    end
   end
 end
