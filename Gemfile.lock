@@ -24,7 +24,11 @@ GEM
       ffi (~> 1.0, >= 1.0.11)
     diff-lcs (1.2.4)
     dotenv (0.9.0)
+    faraday (0.8.8)
+      multipart-post (~> 1.2.0)
     ffi (1.9.0)
+    hashie (2.0.5)
+    httpauth (0.2.0)
     i18n (0.6.5)
     jasmine (1.3.2)
       jasmine-core (~> 1.3.1)
@@ -32,8 +36,25 @@ GEM
       rspec (>= 1.3.1)
       selenium-webdriver (>= 0.1.3)
     jasmine-core (1.3.1)
+    jwt (0.1.8)
+      multi_json (>= 1.5)
     minitest (4.7.5)
     multi_json (1.8.0)
+    multipart-post (1.2.0)
+    oauth2 (0.8.1)
+      faraday (~> 0.8)
+      httpauth (~> 0.1)
+      jwt (~> 0.1.4)
+      multi_json (~> 1.0)
+      rack (~> 1.2)
+    omniauth (1.1.4)
+      hashie (>= 1.2, < 3)
+      rack
+    omniauth-facebook (1.4.0)
+      omniauth-oauth2 (~> 1.0.2)
+    omniauth-oauth2 (1.0.3)
+      oauth2 (~> 0.8.0)
+      omniauth (~> 1.0)
     pg (0.17.0)
     rack (1.5.2)
     rack-protection (1.5.0)
@@ -90,6 +111,8 @@ PLATFORMS
 DEPENDENCIES
   dotenv
   jasmine
+  omniauth
+  omniauth-facebook (= 1.4.0)
   pg
   rack-test
   rspec

@@ -1,1 +1,6 @@
-Hello, World!
+<% if current_user.nil? %>
+  <a href="/auth/facebook">Log in with Facebook</a>
+<% else %>
+  Welcome, <%= current_user.firstname %>!
+  <a href='/logout'>Logout</a>
+<% end %>
