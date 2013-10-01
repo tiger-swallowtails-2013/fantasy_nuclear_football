@@ -4,6 +4,7 @@ class CreateTablePoliticians < ActiveRecord::Migration
       g.string :first_name, :last_name, :nickname, :middle_name, :suffix, 
                :twitter_id, :facebook_id, :party, :gender, :state, :title, 
                :chamber
+      g.belongs_to :team
       g.integer :district, :senate_class
       g.date :birthday
       g.timestamps
