@@ -1,0 +1,8 @@
+LOG:  database system was shut down at 2013-09-30 16:26:11 PDT
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  database "fantasy_test" does not exist
+ERROR:  relation "politicians" does not exist at character 29
+STATEMENT:  SELECT "politicians".* FROM "politicians"
+ERROR:  relation "politicians" does not exist at character 29
+STATEMENT:  SELECT "politicians".* FROM "politicians"
