@@ -10,7 +10,6 @@ require 'league'
 require 'politician'
 require 'user'
 
-
 Dotenv.load
 
 ENV['RACK_ENV'] == 'test' ? DB_NAME = 'fantasy_test' : DB_NAME = 'fantasy'
@@ -18,7 +17,6 @@ ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || "postgres://local
 
 
 set :views, Proc.new { File.join(File.expand_path('.'), "app/views") }
-
 
 require 'omniauth'
 require 'omniauth-facebook'
