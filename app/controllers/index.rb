@@ -12,7 +12,7 @@ end
 
 get '/users/:id' do
   @queried_user = User.find(params[:id])
-  erb :users
+  erb :user
 
 end
 
