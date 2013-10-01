@@ -6,7 +6,14 @@ require 'config/main'
 enable :sessions
 
 get '/' do
+  @all_users = User.all
   erb :index
+end
+
+get '/users/:id' do
+  @queried_user = User.find(params[:id])
+  erb :users
+
 end
 
 get '/auth/facebook/callback' do

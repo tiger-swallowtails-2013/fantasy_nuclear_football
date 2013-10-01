@@ -4,3 +4,8 @@
   Welcome, <%= current_user.firstname %>!
   <a href='/logout'>Logout</a>
 <% end %>
+
+<div id="title">all users</div>
+<% @all_users.each do |one_user| %>
+  <div><a href="/users/<%= one_user.id %>"><%= one_user.username %></a></div>
+<% end %>
