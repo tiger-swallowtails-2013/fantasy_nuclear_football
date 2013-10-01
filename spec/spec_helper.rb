@@ -13,11 +13,11 @@ module Spec
 	include Rack::Test::Methods
 
   def create_test_user
-    User.create!(firstname: 'srinivas',
-            lastname: 'rao',
-            username: 'raorao',
-            email: 'raorao@gmail.com',
-            facebook_id: '12345')
+    User.create!(:firstname => 'srinivas',
+            :lastname => 'rao',
+            :username => 'raorao',
+            :email => 'raorao@gmail.com',
+            :facebook_id => '12345')
   end
 
 	def app
