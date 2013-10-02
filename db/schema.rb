@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 4) do
     t.string   "state"
     t.string   "title"
     t.string   "chamber"
+    t.string   "bioguide_id"
     t.integer  "team_id"
     t.integer  "district"
     t.integer  "senate_class"
