@@ -1,4 +1,5 @@
-<% if current_user.nil? %>
+<p>
+	<% if current_user.nil? %>
   <a href="/auth/facebook">Log in with Facebook</a>
 <% else %>
   Welcome, <%= current_user.firstname %>!
@@ -9,3 +10,5 @@
 <% @all_users.each do |one_user| %>
   <div><a href="/users/<%= one_user.id %>"><%= one_user.username %></a></div>
 <% end %>
+</p>
+

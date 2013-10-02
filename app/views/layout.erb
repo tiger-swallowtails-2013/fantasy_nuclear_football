@@ -2,10 +2,27 @@
 <html>
 <head>
 	<link href="/css/style.css" rel="stylesheet">
-  <meta charset="UTF-8">
-  <title>Fantasy Nuclear Football</title>
+	<link href="/images/favicon.ico" rel="icon">
+	<meta charset="UTF-8">
+	<title>Fantasy Nuclear Football</title>
 </head>
 <body>
-  <%= yield %>
+	<div class="title">Fantasy Nuclear Football</div>
+	<nav>
+		<ul>
+			<li>
+				Login
+			</li>
+			<li>
+				Sign Up
+			</li>
+			<li class="logo">
+				<img src="/images/fantasynuclearfootball.png" class="logo">
+			</li>
+		</ul>
+	</nav>
+	<div class="main">		
+		<%= yield %>
+	</div>
 </body>
 </html>
