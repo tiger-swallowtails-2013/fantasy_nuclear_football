@@ -1,7 +1,7 @@
 $LOAD_PATH.unshift(File.expand_path('.'))
 require 'config/main'
 
-require 'CSV'
+require 'csv'
 
 class PoliticiansImporter
 	def self.import(filename = File.dirname(__FILE__) + "/../db/data/legislators.csv")
