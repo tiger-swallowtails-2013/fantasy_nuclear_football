@@ -9,6 +9,10 @@ get '/' do
   erb :index
 end
 
+get '/teams/:id' do
+  erb :team
+end
+
 get '/users/:id' do
   @queried_user = User.find(params[:id])
   erb :user
