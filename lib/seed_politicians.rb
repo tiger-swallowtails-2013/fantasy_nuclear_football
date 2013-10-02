@@ -1,6 +1,8 @@
 $LOAD_PATH.unshift(File.expand_path('.'))
 require 'config/main'
 
+require 'csv'
+
 class PoliticiansImporter
 	def self.import(filename = File.dirname(__FILE__) + "/../db/data/legislators.csv")
 		header = nil
@@ -9,7 +11,7 @@ class PoliticiansImporter
 				header = line.map{|item| item.to_sym}
 			else
 				attributes = Hash[header.zip(line)]
-				Politician.create!({
+				p Politician.create!({
 					first_name: attributes[:firstname],
 					nickname: attributes[:nickname],
 					last_name: attributes[:lastname],
