@@ -1,11 +1,21 @@
 body{
-	font-family: "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
 	padding:10px;
 	margin:0px;
+	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
 	background-color:#EEEEEE;
+	background:url('/images/senate.png') center center fixed no-repeat;
+	background-size:cover;
+}
+
+a{
+	font-family: "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+	text-decoration:none;
+	color:#3B5998;
 }
 
 nav{
+	font-family: "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+	z-index:10;
 	display:block;
 	margin:0px;
 	background: white;
@@ -61,21 +71,22 @@ nav li.right{
 }
 
 img.logo{
+	position:absolute;
+	top:0px;
 	width:80px;
 	height:80px;
-}
-
-img.fb{
-	height:1.5em;
-	width:1.5em;
+	z-index:20;
 }
 
 .main{
+	z-index:5;
 	margin:0px;
 	padding:10px;
 	background-color:white;
 	border-bottom-left-radius:10px;
 	border-bottom-right-radius:10px;
+	opacity:0.8;
+	box-shadow: grey 2px 2px 2px;
 }
 
 .hidden{
