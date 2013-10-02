@@ -30,7 +30,8 @@ get '/logout' do
 end
 
 post '/politicians/search' do
-  @politico = Politician.find_by name: params[:name]
+  @politico = Politician.find(params[:politician])
+  "#{@politico.first_name}"
 end
 
 helpers do
