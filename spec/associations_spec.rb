@@ -16,4 +16,9 @@ end
 
 describe Politician do
 	it { should belong_to(:team) }
+  it ( should have_many(:scores))
+end
+
+describe Score do
+  it { should belong_to(:politician)}
 end
