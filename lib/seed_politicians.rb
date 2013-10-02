@@ -11,7 +11,7 @@ class PoliticiansImporter
 				header = line.map{|item| item.to_sym}
 			else
 				attributes = Hash[header.zip(line)]
-				p Politician.create!({
+				Politician.create!({
 					first_name: attributes[:firstname],
 					nickname: attributes[:nickname],
 					last_name: attributes[:lastname],
