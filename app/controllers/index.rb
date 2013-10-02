@@ -10,13 +10,13 @@ get '/' do
 end
 
 get '/teams/:id' do
+  @queried_team = Team.find(params[:id])
   erb :team
 end
 
 get '/users/:id' do
   @queried_user = User.find(params[:id])
   erb :user
-
 end
 
 get '/auth/facebook/callback' do
@@ -27,6 +27,10 @@ end
 get '/logout' do
   session.clear
   redirect '/'
+end
+
+post '/politicians/search' do
+  @politico = Politician.find_by name: params[:name]
 end
 
 helpers do

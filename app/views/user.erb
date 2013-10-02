@@ -1,5 +1,6 @@
 <p>
   This is the page of <%= @queried_user.firstname %>
+  <br>
   <% @queried_user.teams.each do |team| %>
     <a href="/teams/<%= team.id %>"><%= team.name %></a>
   <% end %>
