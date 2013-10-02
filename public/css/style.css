@@ -1,72 +1,80 @@
 body{
 	font-family: "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
 	margin:10px;
-	background-color:#0C153B;
+	background-color:#EEEEEE;
 }
 
-.title{
-	background-color:white;
-	font-size:larger;
-	padding:0px;
+nav{
 	margin:0px;
-	text-align: center;
-	color:grey; 
-	border-bottom: 1px solid grey;
-	text-transform:uppercase;
+	background: white;
+	font-style:italic;
+	border-bottom:1px solid grey;
+	color:grey;
 	border-top-right-radius:10px;
 	border-top-left-radius:10px;
 }
 
-nav{
-	height:50px;
-	margin:0px;
-	background-color:grey;
-	color:white;
-	vertical-align:top relative;
+nav a{
+	color:grey;
+	text-decoration: none;
 }
 
 nav ul{
-	vertical-align:middle;
+	padding-left:0;
+	padding-right:0
+	padding-bottom:0;
 	list-style-type:none;
 	overflow:hidden;
 	margin:0px;
 }
 
 nav li{
-	width:100px;
+	height:2em;
+	text-align:center;
+	padding:10px;
 	margin:0px;
 	display:block;
-	text-align: center;
 	text-transform:uppercase;
-	float:right;
+	float:left;
 	border-left: 1px solid white;
 }
 
+nav li.right:hover{
+	background-color:#3B5998;
+	color:white;
+	border-radius:10px;
+	transition: background-color 1s, color 1s;
+}
+
 nav li.logo{
-	width:50px;
+	width:auto;
+	left:auto;
+	right:auto;
 	border-left:0px;
 }
 
-nav li.logo:hover{
-	background-color:grey;
-}
-
-nav li:hover{
-	background-color:#1E328C;
+nav li.right{
+	width:100px;
+	float:right;
+	font-style:normal;
 }
 
 img.logo{
-	height:50px;
-	width:50px;
+	height:1.5em;
+	width:1.5em;
 	float:center;
 	z-index: 10;
+}
+
+img.fb{
+	height:1.5em;
+	width:1.5em;
 }
 
 .main{
 	margin:0px;
 	padding:10px;
 	background-color:white;
-	height:400px;
 	border-bottom-left-radius:10px;
 	border-bottom-right-radius:10px;
 }
