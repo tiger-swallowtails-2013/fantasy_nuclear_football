@@ -21,4 +21,5 @@ end
 
 describe Score do
   it { should belong_to(:politician)}
+  it { should validate_presence_of(:game_number)}
 end
