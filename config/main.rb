@@ -4,6 +4,8 @@ $LOAD_PATH.unshift(File.expand_path('./app/models/'))
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'dotenv'
+require 'sidekiq'
+require 'clockwork'
 
 require 'team'
 require 'politician'

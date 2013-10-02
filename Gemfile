@@ -8,6 +8,7 @@ gem 'omniauth'
 gem 'omniauth-facebook', '1.4.0'
 gem 'pg'
 gem 'clockwork'
+gem 'sidekiq'
 
 group :development, :test do
   gem 'shotgun'
