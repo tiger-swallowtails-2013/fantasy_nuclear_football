@@ -6,3 +6,5 @@ ERROR:  relation "politicians" does not exist at character 29
 STATEMENT:  SELECT "politicians".* FROM "politicians"
 ERROR:  relation "politicians" does not exist at character 29
 STATEMENT:  SELECT "politicians".* FROM "politicians"
+FATAL:  lock file "postmaster.pid" already exists
+HINT:  Is another postmaster (PID 45949) running in data directory "/usr/local/var/postgres"?

@@ -3,7 +3,7 @@ class CreateTablePoliticians < ActiveRecord::Migration
     create_table :politicians do |g|
       g.string :first_name, :last_name, :nickname, :middle_name, :suffix, 
                :twitter_id, :facebook_id, :party, :gender, :state, :title, 
-               :chamber
+               :chamber, :bioguide_id
       g.belongs_to :team
       g.integer :district, :senate_class
       g.date :birthday
