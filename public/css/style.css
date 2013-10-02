@@ -1,17 +1,29 @@
 body{
-	font-family: "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
-	margin:10px;
+	padding:10px;
+	margin:0px;
+	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
 	background-color:#EEEEEE;
+	background:url('/images/senate.png') center center fixed no-repeat;
+	background-size:cover;
+}
+
+a{
+	font-family: "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+	text-decoration:none;
+	color:#3B5998;
 }
 
 nav{
+	font-family: "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+	z-index:10;
+	display:block;
 	margin:0px;
 	background: white;
-	font-style:italic;
 	border-bottom:1px solid grey;
 	color:grey;
 	border-top-right-radius:10px;
 	border-top-left-radius:10px;
+	overflow:hidden;
 }
 
 nav a{
@@ -21,22 +33,21 @@ nav a{
 
 nav ul{
 	padding-left:0;
-	padding-right:0
+	padding-right:0;
 	padding-bottom:0;
 	list-style-type:none;
-	overflow:hidden;
 	margin:0px;
 }
 
 nav li{
-	height:2em;
+	max-width:400px;
+	font-size:1.5em;
+	max-height:3em;
 	text-align:center;
 	padding:10px;
 	margin:0px;
-	display:block;
 	text-transform:uppercase;
 	float:left;
-	border-left: 1px solid white;
 }
 
 nav li.right:hover{
@@ -47,34 +58,37 @@ nav li.right:hover{
 }
 
 nav li.logo{
-	width:auto;
-	left:auto;
-	right:auto;
+	left:47%;
+	position:absolute;
 	border-left:0px;
+	overflow:visible;
 }
 
 nav li.right{
-	width:100px;
+	max-width:150px;
 	float:right;
 	font-style:normal;
 }
 
 img.logo{
-	height:1.5em;
-	width:1.5em;
-	float:center;
-	z-index: 10;
-}
-
-img.fb{
-	height:1.5em;
-	width:1.5em;
+	position:absolute;
+	top:0px;
+	width:80px;
+	height:80px;
+	z-index:20;
 }
 
 .main{
+	z-index:5;
 	margin:0px;
 	padding:10px;
 	background-color:white;
 	border-bottom-left-radius:10px;
 	border-bottom-right-radius:10px;
+	opacity:0.8;
+	box-shadow: grey 2px 2px 2px;
+}
+
+.hidden{
+	display:none;
 }
