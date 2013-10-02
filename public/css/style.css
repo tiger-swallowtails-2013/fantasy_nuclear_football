@@ -1,0 +1,80 @@
+body{
+	font-family: "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+	margin:10px;
+	background-color:#EEEEEE;
+}
+
+nav{
+	margin:0px;
+	background: white;
+	font-style:italic;
+	border-bottom:1px solid grey;
+	color:grey;
+	border-top-right-radius:10px;
+	border-top-left-radius:10px;
+}
+
+nav a{
+	color:grey;
+	text-decoration: none;
+}
+
+nav ul{
+	padding-left:0;
+	padding-right:0
+	padding-bottom:0;
+	list-style-type:none;
+	overflow:hidden;
+	margin:0px;
+}
+
+nav li{
+	height:2em;
+	text-align:center;
+	padding:10px;
+	margin:0px;
+	display:block;
+	text-transform:uppercase;
+	float:left;
+	border-left: 1px solid white;
+}
+
+nav li.right:hover{
+	background-color:#3B5998;
+	color:white;
+	border-radius:10px;
+	transition: background-color 1s, color 1s;
+}
+
+nav li.logo{
+	width:auto;
+	left:auto;
+	right:auto;
+	border-left:0px;
+}
+
+nav li.right{
+	width:100px;
+	float:right;
+	font-style:normal;
+}
+
+img.logo{
+	height:1.5em;
+	width:1.5em;
+	float:center;
+	z-index: 10;
+}
+
+img.fb{
+	height:1.5em;
+	width:1.5em;
+}
+
+.main{
+	margin:0px;
+	padding:10px;
+	background-color:white;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+}
