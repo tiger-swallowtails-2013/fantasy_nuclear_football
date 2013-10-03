@@ -1,0 +1,6 @@
+<div>senator/representative <%= @pol.last_name %>:</div>
+
+<% if @score %>
+  <div><%= @pol.first_name %> had <%= @score.twitter_mentions %> mentions on twitter</div>
+<% end %>
+
