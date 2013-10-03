@@ -46,6 +46,12 @@ get '/auth/facebook/callback' do
   redirect '/'
 end
 
+get '/politicians/:id' do
+  @pol = Politician.find(params[:id].to_i)
+  @score = Score.find_by politician_id: params[:id].to_i
+  erb :politician
+end
+
 get '/logout' do
   session.clear
   redirect '/'
@@ -53,7 +59,7 @@ end
 
 post '/politicians/search' do
   politicos = Politician.where('first_name=?',params[:pol_name].capitalize)
-    .map do |p| 
+    .map do |p|
       this_element = "<form method='post' action='/teams/#{current_user.teams.first.id}/politicians/add/#{p.id}'>"
       this_element << "<input type='submit' class='add' value='+'>"
       this_element << "#{p.info}</form>"
