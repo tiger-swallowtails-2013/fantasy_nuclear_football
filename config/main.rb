@@ -9,6 +9,7 @@ require 'team'
 require 'politician'
 require 'user'
 require 'score'
+require 'politician_team'
 
 Dotenv.load
 
