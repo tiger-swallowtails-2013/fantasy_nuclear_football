@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 6) do
     t.string   "bioguide_id"
     t.integer  "district"
     t.integer  "senate_class"
+    t.boolean  "in_office"
     t.date     "birthday"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -48,6 +49,15 @@ ActiveRecord::Schema.define(version: 6) do
     t.integer  "bill_score"
     t.integer  "game_number"
     t.integer  "politician_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sunlight_scores", force: true do |t|
+    t.string   "activity"
+    t.string   "bioguide_id"
+    t.string   "sunlight_timestamp"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
