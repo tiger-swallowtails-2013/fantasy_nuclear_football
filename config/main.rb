@@ -10,6 +10,7 @@ require 'team'
 require 'politician'
 require 'user'
 require 'score'
+require 'politician_team'
 require 'sunlight_score'
 
 require 'scrape_sunlight'

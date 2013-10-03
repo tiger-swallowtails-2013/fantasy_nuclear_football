@@ -17,12 +17,18 @@ end
 
 get '/teams/:id' do
   @queried_team = Team.find(params[:id])
+  @access = access_granted?(@queried_team.id)
   erb :team
 end
 
 get '/users/:id' do
   @queried_user = User.find(params[:id])
   erb :user
+end
+
+post '/teams/:team_id/politicians/add/:id' do
+  PoliticianTeam.create(team_id:params[:team_id].to_i, politician_id:params[:id].to_i) if access_granted?(params[:team_id].to_i)
+  redirect "/teams/#{params[:team_id]}"
 end
 
 get '/auth/facebook/callback' do
@@ -37,7 +43,11 @@ end
 
 post '/politicians/search' do
   politicos = Politician.where('first_name=?',params[:pol_name].capitalize)
-  .map{|p| "#{p.first_name} #{p.last_name}"}
+    .map do |p| 
+      this_element = "<form method='post' action='/teams/#{current_user.id}/politicians/add/#{p.id}'>"
+      this_element << "<input type='submit' class='add' value='+'>"
+      this_element << "#{p.info}</form>"
+    end
   json politicos
 end
 
@@ -56,7 +66,14 @@ helpers do
     env['omniauth.auth']
   end
 
+  def access_granted?(team_id)
+    return false unless current_user
+    current_user.teams.each {|t| return true if t.id == team_id}
+    false
+  end
+
   def current_user
+    return nil if User.all.size<1
     if session[:user_id]
       @user ||= User.find(session[:user_id])
     else
