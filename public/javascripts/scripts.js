@@ -12,9 +12,15 @@ $("#button").on('click', function(event) {
   $(document).ready(function() {
 
     bindPoliticiansFilter()
-
+    bindSortableTeam()
 
   })
+  function bindSortableTeam() {
+    $('ul.sortable').sortable({
+
+      connectWith: '.sortable'
+    })
+  }
 
   function bindPoliticiansFilter() {
     $('#filterInput').keyup(function(e) {
@@ -34,8 +40,16 @@ $("#button").on('click', function(event) {
   }
 
   function showMatchedPoliticians(matcher) {
-    $('#availablePoliticians li').each(function() {
+    // $('#availablePoliticians ul').html('')
 
+    // $('#hidden li').each(function() {
+    //   var info = $(this)
+    //   if (info.text().match(matcher)) {
+    //     $('#availablePoliticians ul').append(info.clone())
+    //   }
+    // })
+
+    $('#availablePoliticians li').each(function() {
       var info = $(this)
       if (info.text().match(matcher)) {
         info.removeClass('hidden')

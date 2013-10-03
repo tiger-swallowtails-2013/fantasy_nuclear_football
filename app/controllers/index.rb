@@ -32,6 +32,13 @@ get '/teams/:id' do
   erb :team
 end
 
+post '/teams/:id' do
+  PoliticianTeam.where('team_id=?',params[:id]).destroy_all
+  params[:team_members].each do |playa|
+    PoliticianTeam.create(playa)
+  end
+end
+
 get '/users/:id' do
   @queried_user = User.find(params[:id])
   erb :user
