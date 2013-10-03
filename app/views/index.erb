@@ -1,13 +1,14 @@
-<p>
 <% if current_user.nil? %>
-<a href="/auth/facebook">Log in with Facebook</a>
+  <p>Fantasy Nuclear Football is a fantasy politics game. And it is awesome.</p>
+  <p>Click "Login" above to log in with Facebook.</p>
 <% else %>
-Welcome, <%= current_user.firstname %>!
-<a href='/logout'>Logout</a>
+  <p>Welcome, <%= current_user.firstname %>!</p>
 <% end %>
 
-<div id="title">all users</div>
-<% @all_users.each do |one_user| %>
-<div><a href="/users/<%= one_user.id %>"><%= one_user.username %></a></div>
-<% end %>
-</p>
+<div id="title"><strong>Users playing:</strong></div>
+
+<ul>
+  <% @all_users.each do |one_user| %>
+    <li><a href="/users/<%= one_user.id %>"><%= one_user.firstname %> <%= one_user.lastname %></a></li>
+  <% end %>
+</ul>

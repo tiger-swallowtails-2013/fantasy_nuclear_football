@@ -1,8 +1,11 @@
-<p>
-  This is the page of <%= @queried_user.firstname %>
-  <br>
-  <% @queried_user.teams.each do |team| %>
-    <a href="/teams/<%= team.id %>"><%= team.name %></a>
-  <% end %>
+<h3><%= @queried_user.firstname %> <%=@queried_user.lastname %></h3>
 
-</p>
+<% p @queried_user.teams %>
+<% if @queried_user.teams.empty? && access_granted?(@queried_user.id)  %>
+  <a href="/teams/create">Create a new team</a>
+<% end %>
+
+<% @queried_user.teams.each do |team| %>
+  <a href="/teams/<%= team.id %>"><%= team.name %></a>
+<% end %>
+
