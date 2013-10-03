@@ -14,7 +14,6 @@ class TweetStore
 		tweet_hash = {}
 		@db.LLEN.times do
 			mention = @db.LPOP('twitter_mentions')
-			puts mention
 			tweet_hash[mention.to_sym].nil? ? tweet_hash[mention.to_sym]+=1 : tweet_hash[mention.to_sym] = 1
 		end
 		puts tweet_hash
