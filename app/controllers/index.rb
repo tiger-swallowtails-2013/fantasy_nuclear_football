@@ -26,6 +26,11 @@ get '/users/:id' do
   erb :user
 end
 
+post '/teams/:team_id/politicians/add/:id' do
+  PoliticianTeam.create(team_id:params[:team_id].to_i, politician_id:params[:id].to_i) if access_granted?(params[:team_id].to_i)
+  redirect "/teams/#{params[:team_id]}"
+end
+
 get '/auth/facebook/callback' do
   session[:user_id] = User.find_or_create_by(prepared_user_data).id
   redirect '/'
@@ -37,10 +42,9 @@ get '/logout' do
 end
 
 post '/politicians/search' do
-  puts params
   politicos = Politician.where('first_name=?',params[:pol_name].capitalize)
     .map do |p| 
-      this_element = "<form method='post' action='/teams/#{current_user.id}/players/add/#{p.id}'>"
+      this_element = "<form method='post' action='/teams/#{current_user.id}/politicians/add/#{p.id}'>"
       this_element << "<input type='submit' class='add' value='+'>"
       this_element << "#{p.info}</form>"
     end
@@ -69,6 +73,7 @@ helpers do
   end
 
   def current_user
+    return nil if User.all.size<1
     if session[:user_id]
       @user ||= User.find(session[:user_id])
     else

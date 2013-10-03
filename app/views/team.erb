@@ -1,9 +1,11 @@
 <%= @queried_team.name %>
-<% unless @queried_team.politicians.nil? %>
+<div id="team_members">
+  <% unless @queried_team.politicians.nil? %>
 <% @queried_team.politicians.each do |sleazeball| %>
 <p><%= sleazeball.info %></p>
 <% end %>
-<% end %>  
+<% end %>
+</div>  
 <% if @access %>
 <p>find player to add:</p>
 <form method="post" action="/politicians/search">
