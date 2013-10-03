@@ -18,8 +18,7 @@ module TwitterStream
 		count = 0
 
 		TweetStream::Client.new.track(twitter_handles_sample) do |status|
-			puts "#{status.text}"
-			push(status.text)
+			push(status.text, all_politicians_twitter_handles)
 			if(count >= 100)
 				twitter_handles_sample = all_politicians_twitter_handles.sample(400)
 				count = 0;
@@ -28,15 +27,11 @@ module TwitterStream
 		end
 	end
 
-	def self.push(tweet)
-		twitter_handles = Politician.getAllTwitterHandles
+	def self.push(tweet, twitter_handles)
 		db = REDIS
-		puts "#{tweet}"
 		filter_tweet(tweet).each do |mention|
-			puts "#{mention}"
 			if(twitter_handles.include? mention)
 				db.RPUSH('twitter_mentions', mention)
-				puts "#{db.LLEN('twitter_mentions')}"
 			end
 		end
 	end
