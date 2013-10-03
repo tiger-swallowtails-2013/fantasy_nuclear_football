@@ -19,8 +19,7 @@ count = 1
 TweetStream::Client.new.track(twitter_handles_sample) do |status|
 	myTweets.push(status.text)
 	if(count >= 10)
-		# twitter_handles_sample = all_politicians_twitter_handles.sample(400)
-		puts "spit that shit out"
+		twitter_handles_sample = all_politicians_twitter_handles.sample(400)
 		myTweets.compile_tweets
 		count = 1;
 	end
