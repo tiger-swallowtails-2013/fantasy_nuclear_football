@@ -26,4 +26,12 @@ module Spec
 	def app
 		Sinatra::Application
 	end
+
+  
+
+end
+
+def create_test_team
+    Team.create!({:name => '49ers',
+                  :user_id => '1'})
 end
