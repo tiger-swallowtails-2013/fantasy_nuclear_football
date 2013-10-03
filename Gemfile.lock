@@ -27,12 +27,26 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    celluloid (0.15.1)
+      timers (~> 1.1.0)
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
+    clockwork (0.6.1)
+      activesupport
+      tzinfo (~> 0.3.35)
+    congress (0.1.1)
+      faraday (~> 0.8.7)
+      faraday_middleware (~> 0.9.0)
+      hashie (~> 2.0)
+      json (~> 1.8)
+      rash (~> 0.4)
+    connection_pool (1.1.0)
     diff-lcs (1.2.4)
     dotenv (0.9.0)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
+    faraday_middleware (0.9.0)
+      faraday (>= 0.7.4, < 0.9)
     ffi (1.9.0)
     hashie (2.0.5)
     httpauth (0.2.0)
@@ -43,6 +57,7 @@ GEM
       rspec (>= 1.3.1)
       selenium-webdriver (>= 0.1.3)
     jasmine-core (1.3.1)
+    json (1.8.0)
     jwt (0.1.8)
       multi_json (>= 1.5)
     mime-types (1.25)
@@ -72,6 +87,11 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
+    rash (0.4.0)
+      hashie (~> 2.0.0)
+    redis (3.0.5)
+    redis-namespace (1.3.1)
+      redis (~> 3.0.0)
     ripl (0.7.0)
       bond (~> 0.4.2)
     ripl-multi_line (0.3.1)
@@ -98,6 +118,12 @@ GEM
       rack (>= 1.0)
     shoulda-matchers (2.4.0)
       activesupport (>= 3.0.0)
+    sidekiq (2.15.0)
+      celluloid (>= 0.15.1)
+      connection_pool (>= 1.0.0)
+      json
+      redis (>= 3.0.4)
+      redis-namespace (>= 1.3.1)
     sinatra (1.4.3)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -115,6 +141,7 @@ GEM
     thread_safe (0.1.3)
       atomic
     tilt (1.4.1)
+    timers (1.1.0)
     tux (0.3.0)
       ripl (>= 0.3.5)
       ripl-multi_line (>= 0.2.4)
@@ -130,6 +157,8 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
+  clockwork
+  congress
   dotenv
   jasmine
   omniauth
@@ -139,6 +168,7 @@ DEPENDENCIES
   rspec
   shotgun
   shoulda-matchers
+  sidekiq
   sinatra
   sinatra-activerecord
   sinatra-contrib
