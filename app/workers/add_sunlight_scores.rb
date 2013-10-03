@@ -1,20 +1,26 @@
 require_relative '../../config/main.rb'
 
-sunlight_scores = SunlightScore.all
-sunlight_scores.map! {|score| Politician.find_by bioguide_id: score.bioguide_id}
-sunlight_scores.map! {|pol| pol.id}
+module AddSunlightScores
+  def self.update
+    sunlight_scores = SunlightScore.all
+    sunlight_scores.map! {|score| Politician.find_by bioguide_id: score.bioguide_id}
+    sunlight_scores.map! {|pol| pol.id}
 
-sunlight_scores.each do |id|
-  score = Score.find_by politician_id: id
-  if score
-    score.vote_score += 1
-    score.save
-  else
-    Score.create(
-      politician_id: id,
-      vote_score: 1,
-      game_number: 1 )
+    sunlight_scores.each do |id|
+      score = Score.find_by politician_id: id
+      if score
+        score.vote_score += 1
+        score.save
+      else
+        Score.create(
+          politician_id: id,
+          vote_score: 1,
+          game_number: 1 )
+      end
+    end
+
+    SunlightScore.destroy_all
+
   end
 end
 
-SunlightScore.destroy_all

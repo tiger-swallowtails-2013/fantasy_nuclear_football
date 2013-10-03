@@ -1,11 +1,17 @@
 require 'congress'
 require_relative '../../config/main.rb'
 
-Congress.key = '8096702653af468b9126fb83e273fd97'
+Congress.key = ENV['SUNLIGHT_LEGISLATORS_KEY']
 
-events = Congress.floor_updates[:results].select {|update| update[:legislator_ids] != []}
+module SunlightScraper
 
-events.each do |pol|
-  SunlightScore.create(activity: 1, bioguide_id: pol[:legislator_ids][0],
-                      sunlight_timestamp: pol[:timestamp], description: pol[:update])
+  def self.scrape
+    events = Congress.floor_updates[:results].select {|update| update[:legislator_ids] != []}
+
+    events.each do |pol|
+      SunlightScore.create(activity: 1, bioguide_id: pol[:legislator_ids][0],
+                        sunlight_timestamp: pol[:timestamp], description: pol[:update])
+    end
+  end
+
 end
