@@ -5,6 +5,7 @@ class CreateTablePoliticians < ActiveRecord::Migration
                :twitter_id, :facebook_id, :party, :gender, :state, :title, 
                :chamber, :bioguide_id
       g.integer :district, :senate_class
+      g.boolean :in_office
       g.date :birthday
       g.timestamps
     end
