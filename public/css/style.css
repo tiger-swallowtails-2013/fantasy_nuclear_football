@@ -107,3 +107,13 @@ img.logo{
 	color:blue;
 	transition: color 1s;
 }
+
+#timeline{
+	display: inline-block;
+	right:0px;
+	top:50px;
+}
+
+#home{
+	max-width: 30%;
+}
