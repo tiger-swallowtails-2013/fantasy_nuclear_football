@@ -27,8 +27,16 @@ end
 
 get '/teams/:id' do
   @queried_team = Team.find(params[:id])
+  @politicians = Politician.all.sort_by { |p| p.first_name }
   @access = access_granted?(@queried_team.user.id)
   erb :team
+end
+
+post '/teams/:id' do
+  PoliticianTeam.where('team_id=?',params[:id]).destroy_all
+  params[:team_members].each do |playa|
+    PoliticianTeam.create(playa)
+  end
 end
 
 get '/users/:id' do
