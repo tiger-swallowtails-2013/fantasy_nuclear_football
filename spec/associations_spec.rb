@@ -11,11 +11,11 @@ end
 describe Team do
 	it { should validate_presence_of(:name) }
 	it { should belong_to(:user) }
-	it { should have_many(:politicians) }
+	it { should have_many(:politicians).through(:politician_teams) }
 end
 
 describe Politician do
-	it { should belong_to(:team) }
+	it { should have_many(:teams).through(:politician_teams) }
   it { should have_many(:scores)}
 end
 

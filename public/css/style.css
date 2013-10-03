@@ -92,3 +92,18 @@ img.logo{
 .hidden{
 	display:none;
 }
+
+.button{
+	background:url('/images/americanflag.png') center center white no-repeat;
+	background-size:cover;
+	border:1px solid grey;
+	border-radius:10px;
+	font-weight:bold;
+	color:black;
+	text-transform:uppercase;
+}
+
+.button:hover{
+	color:blue;
+	transition: color 1s;
+}

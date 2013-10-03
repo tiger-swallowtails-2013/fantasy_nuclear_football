@@ -15,6 +15,11 @@ ActiveRecord::Schema.define(version: 6) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "politician_teams", force: true do |t|
+    t.integer "politician_id"
+    t.integer "team_id"
+  end
+
   create_table "politicians", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -29,7 +34,6 @@ ActiveRecord::Schema.define(version: 6) do
     t.string   "title"
     t.string   "chamber"
     t.string   "bioguide_id"
-    t.integer  "team_id"
     t.integer  "district"
     t.integer  "senate_class"
     t.date     "birthday"
