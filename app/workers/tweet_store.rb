@@ -44,10 +44,4 @@ module TweetStore
 			end
 		end
 	end
-
-
-
-
-
-
 end
