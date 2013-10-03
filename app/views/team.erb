@@ -11,15 +11,17 @@
 </div>  
 
 <% if @access %>
-  <input type="text" id="filter_input" placeholder="Filter Politicians here">
+  <input type="text" id="filterInput" placeholder="Filter Politicians here">
 
-  <ul>
-    <% @politicians.each do |sleazeball| %>
-      <li>
-        <span class="name"><%= sleazeball.info %></span>
-      </li>
-    <% end %>
-  </ul>
+  <div id="availablePoliticians">
+    <ul>
+      <% @politicians.each do |sleazeball| %>
+        <li>
+          <span class="name"><%= sleazeball.info %></span>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 
   <div id="politicianResults">
   </div>

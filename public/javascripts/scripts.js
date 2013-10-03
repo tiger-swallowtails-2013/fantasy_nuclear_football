@@ -8,4 +8,42 @@ $("#button").on('click', function(event) {
   })
 })
 
+;(function() {
+  $(document).ready(function() {
 
+    bindPoliticiansFilter()
+
+
+  })
+
+  function bindPoliticiansFilter() {
+    $('#filterInput').keyup(function(e) {
+
+
+      var newMatcher 
+      try {
+        newMatcher = new RegExp($(this).val(), 'i')
+      } catch (e) {
+        // do nothing
+      }
+
+      if (newMatcher) {
+        showMatchedPoliticians(newMatcher)
+      }
+    })
+  }
+
+  function showMatchedPoliticians(matcher) {
+    $('#availablePoliticians li').each(function() {
+
+      var info = $(this)
+      if (info.text().match(matcher)) {
+        info.removeClass('hidden')
+      }
+      else {
+        info.addClass('hidden')
+      }
+    })
+  }
+  
+})()
