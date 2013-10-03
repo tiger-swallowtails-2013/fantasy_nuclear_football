@@ -35,4 +35,4 @@ use OmniAuth::Builder do
 end
 
 require 'redis'
-ENV['RACK_ENV'] == 'test' ? REDIS = Redis.new : REDIS = ENV['REDISTOGO_URL']
+# ENV['RACK_ENV'] == 'test' ? REDIS = Redis.new : REDIS = ENV['REDISTOGO_URL']

@@ -48,3 +48,10 @@ task "worker:twitter_init" do
   puts "where can I get some damn bait?"
   TwitterStream.start
 end
+
+desc "updates the postgres database with twitter data"
+task "worker:twitter_load" do
+  puts "redis WE DRANK YOUR MILKSHAKE"
+  TweetStore.compile_tweets
+end
+
