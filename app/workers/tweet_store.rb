@@ -1,10 +1,8 @@
-require 'redis'
-
 class TweetStore
 
 	def initialize(search_terms)
 		@twitter_handles = search_terms
-		@db = Redis.new
+		@db = REDIS
 	end
 
 	def compile_tweets

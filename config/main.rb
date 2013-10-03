@@ -33,3 +33,6 @@ require 'omniauth-facebook'
 use OmniAuth::Builder do
   provider :facebook, ENV['FB_APP_ID'], ENV['FB_APP_SECRET']
 end
+
+require 'redis'
+ENV['RACK_ENV'] == 'test' ? REDIS = Redis.new : REDIS = ENV['REDISTOGO_URL']
