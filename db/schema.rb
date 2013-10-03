@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 4) do
+ActiveRecord::Schema.define(version: 5) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,19 @@ ActiveRecord::Schema.define(version: 4) do
     t.integer  "team_id"
     t.integer  "district"
     t.integer  "senate_class"
+    t.boolean  "in_office"
     t.date     "birthday"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "scores", force: true do |t|
+    t.integer  "twitter_mentions"
+    t.integer  "twitter_follower_increase"
+    t.integer  "vote_score"
+    t.integer  "bill_score"
+    t.integer  "game_number"
+    t.integer  "politician_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

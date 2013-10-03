@@ -10,6 +10,8 @@ gem 'pg'
 gem 'clockwork'
 gem 'sidekiq'
 gem 'congress'
+gem 'tweetstream'
+gem 'redis'
 
 group :development, :test do
   gem 'shotgun'

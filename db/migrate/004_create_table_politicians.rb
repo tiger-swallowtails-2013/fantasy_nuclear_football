@@ -6,6 +6,7 @@ class CreateTablePoliticians < ActiveRecord::Migration
                :chamber, :bioguide_id
       g.belongs_to :team
       g.integer :district, :senate_class
+      g.boolean :in_office
       g.date :birthday
       g.timestamps
     end
