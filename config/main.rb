@@ -15,6 +15,9 @@ require 'sunlight_score'
 
 require 'scrape_sunlight'
 require 'add_sunlight_scores'
+require 'twitter_stream'
+require 'tweet_store'
+
 
 Dotenv.load
 

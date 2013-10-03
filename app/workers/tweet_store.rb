@@ -1,7 +1,4 @@
 require 'redis'
-require 'tweetstream'
-
-require_relative '../../config/main'
 
 class TweetStore
 
@@ -27,7 +24,6 @@ class TweetStore
 		filter_tweet(tweet).each do |mention|
 			if(@twitter_handles.include? mention)
 				@db.RPUSH('twitter_mentions', mention)
-				puts ("enter #{mention} into REDIS DB")
 			end
 		end
 	end
