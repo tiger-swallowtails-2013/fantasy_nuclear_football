@@ -36,11 +36,9 @@ get '/logout' do
 end
 
 post '/politicians/search' do
-  politicos = Politician.where('first_name=?',params[:pol_name]).map{|p| "#{p.first_name} #{p.last_name}"}
+  politicos = Politician.where('first_name=?',params[:pol_name].capitalize)
+  .map{|p| "#{p.first_name} #{p.last_name}"}
   json politicos
-  # json_chaffetz = {}
-  # politicos.each {|p| json_chaffetz[p.id]={name:"#{p.first_name} #{p.last_name}"}}
-  # JSON.dump(json_chaffetz)
 end
 
 helpers do
