@@ -120,3 +120,13 @@ img.logo{
 	font-style:italic;
 	border-radius:5px;
 }
+
+#timeline{
+	display: inline-block;
+	right:0px;
+	top:50px;
+}
+
+#home{
+	max-width: 30%;
+}
