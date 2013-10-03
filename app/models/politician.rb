@@ -1,5 +1,6 @@
 class Politician < ActiveRecord::Base
-  belongs_to :team
+  has_many :politician_teams
+  has_many :teams, through: :politician_teams
   has_many :scores
 
   def info
