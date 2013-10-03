@@ -27,6 +27,7 @@ end
 
 get '/teams/:id' do
   @queried_team = Team.find(params[:id])
+  @politicians = Politician.all.sort_by { |p| p.first_name }
   @access = access_granted?(@queried_team.user.id)
   erb :team
 end

@@ -1,20 +1,25 @@
 <h3><%= @queried_team.name %></h3>
 <div id="team_members">
-  <% unless @queried_team.politicians.nil? %>
-    <% @queried_team.politicians.each do |sleazeball| %>
-      <p><%= sleazeball.info %></p>
+  <h4>Team Members:</h4>
+  <ul>
+    <% unless @queried_team.politicians.nil? %>
+      <% @queried_team.politicians.each do |sleazeball| %>
+        <li><%= sleazeball.info %></li>
+      <% end %>
     <% end %>
-  <% end %>
+  </ul>
 </div>  
 
 <% if @access %>
-  <p>find player to add:</p>
+  <input type="text" id="filter_input" placeholder="Filter Politicians here">
 
-  <form method="post" action="/politicians/search">
-    <textarea id="pol_name" name="pol_name"></textarea>
-    <input type="hidden" name="user_id" value="<%= @queried_team.id %>" >
-    <input id="button" class="button" type="submit" value="search for politicians">
-  </form>
+  <ul>
+    <% @politicians.each do |sleazeball| %>
+      <li>
+        <span class="name"><%= sleazeball.info %></span>
+      </li>
+    <% end %>
+  </ul>
 
   <div id="politicianResults">
   </div>
