@@ -42,3 +42,9 @@ task "worker:update_sunlight_scores" do
   puts "A worker is cleaning out the SunlightScores database and loading the Scores table"
   AddSunlightScores.update
 end
+
+desc "starts up the twitter stream"
+task "worker:twitter_init" do
+  puts "where can I get some damn bait?"
+  TwitterStream.start
+end
