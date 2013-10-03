@@ -1,22 +1,22 @@
 <h3><%= @queried_team.name %></h3>
 <div id="team_members">
-  <h4>Team Members:</h4> 
-  <ul class="sortable">
+  <h4>Team Members:</h4>
+  <ul class="sortable" style="min-height: 10px;">
     <% unless @queried_team.politicians.nil? %>
       <% @queried_team.politicians.each do |sleazeball| %>
         <li><%= sleazeball.info %></li>
       <% end %>
     <% end %>
   </ul>
-</div>  
+</div>
 
 <% if @access %>
  <input value="Update My Team!" type="submit" id="update" class="button">
   <div id="availablePoliticians">
     <input type="text" id="filterInput" placeholder="Filter Politicians here">
     <ul class="sortable">
-      <% @politicians.each do |sleazeball| %>
-        <li>
+      <% @politicians.each_with_index do |sleazeball, index| %>
+        <li class="pol-<%= index %>">
           <span class="name"><%= sleazeball.info %></span>
         </li>
       <% end %>
@@ -25,8 +25,8 @@
 
   <div id="hidden" class="hidden">
     <ul>
-      <% @politicians.each do |sleazeball| %>
-        <li>
+      <% @politicians.each_with_index do |sleazeball, index| %>
+        <li class="pol-<%= index %>">
           <span class="name"><%= sleazeball.info %></span>
         </li>
       <% end %>
