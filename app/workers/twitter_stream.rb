@@ -3,10 +3,10 @@ require_relative '../../config/main'
 require_relative './tweet_store'
 
 TweetStream.configure do |config|
-	config.consumer_key = 'tJVQjWUTMPIE15CETuTNZg'
-	config.consumer_secret = 'HAs6b5DEcEsclHYuP81jexIgdDx9Hql0ENobTlVFgc'
-	config.oauth_token = '50106246-PDgCqZC0rO4jQpWz6qOhiRJj5oMaW5KMzptSQ9XvB'
-	config.oauth_token_secret = 'XaGTYwu0I3mtyYsiflDqCaXalJm6TBYzqdgt0fXG5c'
+	config.consumer_key = TWITTER_CONSUMER_KEY
+	config.consumer_secret = TWITTER_CONSUMER_SECRET
+	config.oauth_token = TWITTER_OAUTH_TOKEN
+	config.oauth_token_secret = TWITTER_OAUTH_TOKEN_SECRET
 	config.auth_method = :oauth
 end
 
