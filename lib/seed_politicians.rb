@@ -26,6 +26,7 @@ class PoliticiansImporter
 					senate_class: attributes[:senate_class],
 					twitter_id: attributes[:twitter_id],
 					facebook_id: attributes[:facebook_id],
+					in_office: attributes[:in_office],
 					birthday: attributes[:birthdate]	
 					})
 			end
