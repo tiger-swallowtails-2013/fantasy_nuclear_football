@@ -7,9 +7,9 @@ module TweetStore
 		db = REDIS
 
 		tweet_hash = {}
-		entries = db.LLEN('twitter_mentions')
+		entries = db.LLEN(twitter_mentions)
 		entries.times do
-			mention = db.LPOP('twitter_mentions')
+			mention = db.LPOP(twitter_mentions)
 			tweet_hash[mention.to_sym].nil? ? tweet_hash[mention.to_sym] = 1 : tweet_hash[mention.to_sym]+=1
 		end
 
