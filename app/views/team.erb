@@ -1,7 +1,7 @@
 <%= @queried_team.name %>
 <p>find player:</p>
 <form method="post" action="/politicians/search">
-  <textarea name="politician"></textarea>
+  <textarea id="pol_name" name="pol_name"></textarea>
   <input class="button" type=submit value="search for politicians">
 </form>
 <div id="politicianResults">

@@ -1,12 +1,18 @@
 $LOAD_PATH.unshift(File.expand_path('.'))
 
 require 'config/main'
+require "sinatra/json"
 
 enable :sessions
 
 get '/' do
   @all_users = User.all
   erb :index
+end
+
+get '/teams/:id.json' do
+  @queried_team = Team.find(params[:id])
+  json @queried_team
 end
 
 get '/teams/:id' do
@@ -30,8 +36,11 @@ get '/logout' do
 end
 
 post '/politicians/search' do
-  @politico = Politician.find(params[:politician])
-  "#{@politico.first_name}"
+  politicos = Politician.where('first_name=?',params[:pol_name]).map{|p| "#{p.first_name} #{p.last_name}"}
+  json politicos
+  # json_chaffetz = {}
+  # politicos.each {|p| json_chaffetz[p.id]={name:"#{p.first_name} #{p.last_name}"}}
+  # JSON.dump(json_chaffetz)
 end
 
 helpers do
