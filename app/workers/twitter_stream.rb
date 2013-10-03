@@ -30,8 +30,7 @@ module TwitterStream
 
 	def self.push(tweet)
 		twitter_handles = Politician.getAllTwitterHandles
-		# db = ENV['REDIS']
-		db = Redis.new
+		db = ENV['REDIS']
 		puts "#{tweet}"
 		filter_tweet(tweet).each do |mention|
 			puts "#{mention}"

@@ -4,8 +4,7 @@ module TweetStore
 
 	def self.compile_tweets
 
-		db = Redis.new
-		# db = ENV['REDIS']
+		db = ENV['REDIS']
 
 		tweet_hash = {}
 		entries = db.LLEN('twitter_mentions')
