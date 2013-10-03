@@ -1,35 +1,47 @@
-require 'redis'
-require 'tweetstream'
+require_relative '../../config/main.rb'
 
-require_relative '../../config/main'
+module TweetStore
 
-class TweetStore
+	def self.compile_tweets
 
-	def initialize(search_terms)
-		@twitter_handles = search_terms
-		@db = Redis.new
-	end
+		db = ENV['REDIS']
 
-	def compile_tweets
 		tweet_hash = {}
-		@db.LLEN.times do
-			mention = @db.LPOP('twitter_mentions')
-			tweet_hash[mention.to_sym].nil? ? tweet_hash[mention.to_sym]+=1 : tweet_hash[mention.to_sym] = 1
+		entries = db.LLEN('twitter_mentions')
+		entries.times do
+			mention = db.LPOP('twitter_mentions')
+			tweet_hash[mention.to_sym].nil? ? tweet_hash[mention.to_sym] = 1 : tweet_hash[mention.to_sym]+=1
 		end
-		puts tweet_hash
+
+		db.flushall
+		tweets = transform_for_database(tweet_hash)
+		p tweets
+		push_to_database(tweets)
+
 	end
 
-	def filter_tweet(tweet_text)
-		tweet_text.scan(/@\w+/)
+	def self.transform_for_database(tweet_hash)
+		tweet_array = tweet_hash.to_a
+		tweet_array.map do |entry|
+			handle = entry[0].to_s[1..-1]
+			pol = Politician.find_by twitter_id: handle
+			entry[0] = pol.id
+		end
+
+		tweet_array
 	end
 
-	def push(tweet)
-		filter_tweet(tweet).each do |mention|
-			if(@twitter_handles.include? mention)
-				@db.RPUSH('twitter_mentions', mention)
-				puts ("enter #{mention} into REDIS DB")
+	def self.push_to_database(tweet_array)
+		tweet_array.each do |entry|
+			score_entry = Score.find_by politician_id: entry[0]
+
+			if score_entry
+				score_entry.twitter_mentions += entry[1]
+				score_entry.save
+			else
+				Score.create(politician_id: entry[0],
+									twitter_mentions: entry[1], game_number: 1)
 			end
 		end
 	end
-
 end

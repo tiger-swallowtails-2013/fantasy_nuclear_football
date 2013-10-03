@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 6) do
     t.string   "bioguide_id"
     t.integer  "district"
     t.integer  "senate_class"
+    t.boolean  "in_office"
     t.date     "birthday"
     t.datetime "created_at"
     t.datetime "updated_at"
