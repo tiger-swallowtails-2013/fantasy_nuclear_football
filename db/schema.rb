@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 5) do
+ActiveRecord::Schema.define(version: 6) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,18 @@ ActiveRecord::Schema.define(version: 5) do
     t.datetime "updated_at"
   end
 
+<<<<<<< HEAD
+=======
+  create_table "sunlight_scores", force: true do |t|
+    t.string   "activity"
+    t.string   "bioguide_id"
+    t.string   "sunlight_timestamp"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+>>>>>>> master
   create_table "teams", force: true do |t|
     t.string   "name"
     t.integer  "user_id"

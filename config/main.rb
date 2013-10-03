@@ -1,5 +1,6 @@
 $LOAD_PATH.unshift(File.expand_path('.'))
 $LOAD_PATH.unshift(File.expand_path('./app/models/'))
+$LOAD_PATH.unshift(File.expand_path('./app/workers/'))
 
 require 'sinatra'
 require 'sinatra/activerecord'
@@ -9,6 +10,10 @@ require 'team'
 require 'politician'
 require 'user'
 require 'score'
+require 'sunlight_score'
+
+require 'scrape_sunlight'
+require 'add_sunlight_scores'
 
 Dotenv.load
 

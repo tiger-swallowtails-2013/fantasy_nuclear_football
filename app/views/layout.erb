@@ -4,17 +4,23 @@
 	<link href="/css/style.css" rel="stylesheet">
 	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 	<link href="/images/favicon.ico" rel="icon">
+
 	<meta charset="UTF-8">
+
 	<title>Fantasy Nuclear Football</title>
 </head>
 <body>
 	<nav>
 		<ul>
-			<li>
-				Fantasy Nuclear Football
-			</li>
+			<a href="/">
+				<li>
+					Fantasy Nuclear Football
+				</li>
+			</a>
 			<li class="logo">
-				<img src="/images/fantasynuclearfootballshadow.png" class="logo">
+				<a href="/">
+					<img src="/images/fantasynuclearfootballshadow.png" class="logo">
+				</a>
 			</li>
 			<% if current_user %>
 			<a href="/logout">
@@ -35,4 +41,6 @@
 		<%= yield %>
 	</div>
 </body>
+<script type="text/javascript" src="/javascripts/jquery.js"></script>
+<script type="text/javascript" src="/javascripts/scripts.js"></script>
 </html>
