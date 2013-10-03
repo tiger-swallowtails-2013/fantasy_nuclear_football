@@ -15,9 +15,19 @@ get '/teams/:id.json' do
   json @queried_team
 end
 
+get '/teams/create' do
+  redirect "/teams/#{current_user.teams.first.id.to_s}" unless current_user.teams.empty?
+  erb :create_team
+end
+
+post '/teams/create' do
+  team = Team.create(name:params[:name], user_id:current_user.id)
+  redirect "/teams/#{team.id}"
+end
+
 get '/teams/:id' do
   @queried_team = Team.find(params[:id])
-  @access = access_granted?(@queried_team.id)
+  @access = access_granted?(@queried_team.user.id)
   erb :team
 end
 
@@ -27,7 +37,7 @@ get '/users/:id' do
 end
 
 post '/teams/:team_id/politicians/add/:id' do
-  PoliticianTeam.create(team_id:params[:team_id].to_i, politician_id:params[:id].to_i) if access_granted?(params[:team_id].to_i)
+  PoliticianTeam.create(team_id:params[:team_id].to_i, politician_id:params[:id].to_i) if access_granted?(Team.find(params[:team_id]).user.id)
   redirect "/teams/#{params[:team_id]}"
 end
 
@@ -44,7 +54,7 @@ end
 post '/politicians/search' do
   politicos = Politician.where('first_name=?',params[:pol_name].capitalize)
     .map do |p| 
-      this_element = "<form method='post' action='/teams/#{current_user.id}/politicians/add/#{p.id}'>"
+      this_element = "<form method='post' action='/teams/#{current_user.teams.first.id}/politicians/add/#{p.id}'>"
       this_element << "<input type='submit' class='add' value='+'>"
       this_element << "#{p.info}</form>"
     end
@@ -66,10 +76,9 @@ helpers do
     env['omniauth.auth']
   end
 
-  def access_granted?(team_id)
+  def access_granted?(user_id)
     return false unless current_user
-    current_user.teams.each {|t| return true if t.id == team_id}
-    false
+    user_id == current_user.id
   end
 
   def current_user
