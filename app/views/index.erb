@@ -9,7 +9,7 @@
 
 <ul>
   <% @all_users.each do |one_user| %>
-    <li><a href="/users/<%= one_user.id %>"><%= one_user.firstname %> <%= one_user.lastname %></a></li>
+    <li><a href="/users/<%= one_user.id %>"><%= one_user.firstname %> <%= one_user.lastname %>.<br>Team: <%= one_user.teams[0].name %><br>Week 1 Score: <%= one_user.teams[0].team_score(1) %> </a></li>
   <% end %>
-</ul>	
+</ul>
 </div>
