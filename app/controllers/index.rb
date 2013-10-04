@@ -33,10 +33,14 @@ get '/teams/:id' do
 end
 
 post '/teams/:id' do
-  PoliticianTeam.where('team_id=?',params[:id]).destroy_all
-  params[:team_members].each do |playa|
-    PoliticianTeam.create(playa)
+  clear_team!(params[:id])
+  okay = 0
+  params[:team_members].uniq.each do |p_id|
+    new_pol = PoliticianTeam.create(politician_id:p_id.to_i, team_id:params[:id].to_i)
+    okay+= 1 if new_pol.persisted?
   end
+  return "okay" if okay == params[:team_members].uniq.length
+  "not okay :("
 end
 
 get '/users/:id' do
@@ -67,11 +71,11 @@ end
 
 post '/politicians/search' do
   politicos = Politician.where('first_name=?',params[:pol_name].capitalize)
-    .map do |p|
-      this_element = "<form method='post' action='/teams/#{current_user.teams.first.id}/politicians/add/#{p.id}'>"
-      this_element << "<input type='submit' class='add' value='+'>"
-      this_element << "#{p.info}</form>"
-    end
+  .map do |p|
+    this_element = "<form method='post' action='/teams/#{current_user.teams.first.id}/politicians/add/#{p.id}'>"
+    this_element << "<input type='submit' class='add' value='+'>"
+    this_element << "#{p.info}</form>"
+  end
   json politicos
 end
 
@@ -102,5 +106,9 @@ helpers do
     else
       nil
     end
+  end
+
+  def clear_team!(id)
+    PoliticianTeam.where('team_id=?',id).destroy_all
   end
 end

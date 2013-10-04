@@ -3,8 +3,8 @@
   <h4>Team Members:</h4>
   <ul class="sortable" style="min-height: 10px;">
     <% unless @queried_team.politicians.nil? %>
-      <% @queried_team.politicians.each do |sleazeball| %>
-        <li><%= sleazeball.info %></li>
+      <% @queried_team.politicians.each_with_index do |sleazeball, index| %>
+        <li class="pol-<%= index %>" rel="<%= sleazeball.id %>"><%= sleazeball.info %></li>
       <% end %>
     <% end %>
   </ul>
@@ -16,7 +16,7 @@
     <input type="text" id="filterInput" placeholder="Filter Politicians here">
     <ul class="sortable">
       <% @politicians.each_with_index do |sleazeball, index| %>
-        <li class="pol-<%= index %>">
+        <li class="pol-<%= index %>" rel="<%= sleazeball.id %>">
           <span class="name"><%= sleazeball.info %></span>
         </li>
       <% end %>
@@ -26,7 +26,7 @@
   <div id="hidden" class="hidden">
     <ul>
       <% @politicians.each_with_index do |sleazeball, index| %>
-        <li class="pol-<%= index %>">
+        <li class="pol-<%= index %>" rel="<%= sleazeball.id %>">
           <span class="name"><%= sleazeball.info %></span>
         </li>
       <% end %>
