@@ -18,6 +18,8 @@ require 'add_sunlight_scores'
 require 'twitter_stream'
 require 'tweet_store'
 
+require 'nokogiri'
+require 'open-uri'
 
 Dotenv.load
 
