@@ -15,11 +15,6 @@
   <div id="availablePoliticians">
     <input type="text" id="filterInput" placeholder="Filter Politicians here">
     <ul class="sortable">
-      <% @politicians.each_with_index do |sleazeball, index| %>
-        <li class="pol-<%= index %>" rel="<%= sleazeball.id %>">
-          <span class="name"><img src="/images/mugshots_sm/<%= sleazeball.bioguide_id %>.jpg" class="pol"> <%= sleazeball.info %></span>
-        </li>
-      <% end %>
     </ul>
   </div>
 
