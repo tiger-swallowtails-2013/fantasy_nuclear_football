@@ -24,6 +24,7 @@ nav{
 	border-top-right-radius:10px;
 	border-top-left-radius:10px;
 	overflow:hidden;
+	box-shadow: grey 2px 0px 2px;
 }
 
 nav a{
@@ -42,10 +43,12 @@ nav ul{
 
 nav li{
 	max-width:400px;
-	font-size:1.5em;
+	font-size:1.6em;
 	max-height:3em;
 	text-align:center;
-	padding:10px;
+	padding:8px;
+	padding-left:10px;
+	padding-right:10px;
 	margin:0px;
 	text-transform:uppercase;
 	float:left;
@@ -54,13 +57,14 @@ nav li{
 nav li.right:hover{
 	background-color:#3B5998;
 	color:white;
-	border-radius:10px;
-	transition: background-color 1s, color 1s;
+	border-top-right-radius:10px;
+	transition: background-color 0.5s, color 0.5s;
 }
 
 nav li.logo{
 	left:47%;
 	position:absolute;
+	top:12px;
 	border-left:0px;
 	overflow:visible;
 }
@@ -69,6 +73,34 @@ nav li.right{
 	max-width:150px;
 	float:right;
 	font-style:normal;
+}
+
+.menu_div{
+	box-shadow: grey 2px 0px 2px;
+	display: block;
+	background: white;
+	border-radius: 0px;
+	padding: 0px;
+}
+
+.menu_div ul{
+	list-style-type: none;
+	z-index: 8;
+}
+
+.menu_div li{
+	float: left;
+	font-size: 1em;
+}
+
+.menu_div li:hover{
+	background-color: #3B5998;
+	color: white;
+	transition: background-color 0.5s, color 0.5s;
+}
+
+.menu_div a{
+	color: black;
 }
 
 img.logo{
