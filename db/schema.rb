@@ -62,15 +62,6 @@ ActiveRecord::Schema.define(version: 7) do
     t.datetime "updated_at"
   end
 
-  create_table "sunlight_scores", force: true do |t|
-    t.string   "activity"
-    t.string   "bioguide_id"
-    t.string   "sunlight_timestamp"
-    t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "teams", force: true do |t|
     t.string   "name"
     t.integer  "user_id"
