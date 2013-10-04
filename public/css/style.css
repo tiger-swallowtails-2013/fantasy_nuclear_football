@@ -173,3 +173,18 @@ img.logo{
 	max-width: 40%;
 	height:500px;
 }
+
+ul.sortable{
+	list-style-type:none;
+}
+
+.name{
+	top:auto;
+	bottom:auto;
+	font-size:1.2em;
+}
+
+img.pol{
+	height:30px;
+	width:24px;
+}
