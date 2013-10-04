@@ -121,7 +121,6 @@ helpers do
       association_check = PoliticianTeam.where(politician_id: p_id.to_i, team_id: params[:id].to_i)
       okay+= 1 if association_check.count > 0
     end
-    puts "#{response}" if okay==array.length
     return response if okay == array.length
   end
 end
