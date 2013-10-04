@@ -1,21 +1,36 @@
 <h3><%= @queried_team.name %></h3>
 <div id="team_members">
-  <% unless @queried_team.politicians.nil? %>
-    <% @queried_team.politicians.each do |sleazeball| %>
-      <p><%= sleazeball.info %></p>
+  <h4>Team Members:</h4>
+  <ul class="sortable" style="min-height: 10px;">
+    <% unless @queried_team.politicians.nil? %>
+      <% @queried_team.politicians.each do |sleazeball| %>
+        <li><%= sleazeball.info %></li>
+      <% end %>
     <% end %>
-  <% end %>
-</div>  
+  </ul>
+</div>
 
 <% if @access %>
-  <p>find player to add:</p>
-
-  <form method="post" action="/politicians/search">
-    <textarea id="pol_name" name="pol_name"></textarea>
-    <input type="hidden" name="user_id" value="<%= @queried_team.id %>" >
-    <input id="button" class="button" type="submit" value="search for politicians">
-  </form>
-
-  <div id="politicianResults">
+ <input value="Update My Team!" type="submit" id="update" class="button">
+  <div id="availablePoliticians">
+    <input type="text" id="filterInput" placeholder="Filter Politicians here">
+    <ul class="sortable">
+      <% @politicians.each_with_index do |sleazeball, index| %>
+        <li class="pol-<%= index %>">
+          <span class="name"><%= sleazeball.info %></span>
+        </li>
+      <% end %>
+    </ul>
   </div>
+
+  <div id="hidden" class="hidden">
+    <ul>
+      <% @politicians.each_with_index do |sleazeball, index| %>
+        <li class="pol-<%= index %>">
+          <span class="name"><%= sleazeball.info %></span>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
 <% end %>

@@ -37,8 +37,27 @@ task "worker:sunlight_scraper" do
   SunlightScraper.scrape
 end
 
+desc "seeding the Sunlight Foundation database"
+task "worker:sunlight_seed" do
+  puts "Adding last twenty events to the SunlightScores database..."
+  SunlightScraper.seed
+end
+
 desc "clear out SunlightScore database and update Scores"
 task "worker:update_sunlight_scores" do
   puts "A worker is cleaning out the SunlightScores database and loading the Scores table"
   AddSunlightScores.update
 end
+
+desc "starts up the twitter stream"
+task "worker:twitter_init" do
+  puts "where can I get some damn bait?"
+  TwitterStream.start
+end
+
+desc "updates the postgres database with twitter data"
+task "worker:twitter_load" do
+  puts "redis WE DRANK YOUR MILKSHAKE"
+  TweetStore.compile_tweets
+end
+

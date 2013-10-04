@@ -8,6 +8,8 @@ gem 'dotenv'
 gem 'omniauth'
 gem 'omniauth-facebook', '1.4.0'
 gem 'pg'
+gem 'tweetstream'
+gem 'redis'
 gem 'congress'
 
 group :development, :test do

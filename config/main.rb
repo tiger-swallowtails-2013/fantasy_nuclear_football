@@ -15,6 +15,9 @@ require 'sunlight_score'
 
 require 'scrape_sunlight'
 require 'add_sunlight_scores'
+require 'twitter_stream'
+require 'tweet_store'
+
 
 Dotenv.load
 
@@ -29,4 +32,14 @@ require 'omniauth-facebook'
 
 use OmniAuth::Builder do
   provider :facebook, ENV['FB_APP_ID'], ENV['FB_APP_SECRET']
+end
+
+require 'redis'
+require 'uri'
+
+if ENV['REDISTOGO_URL']
+  uri = URI.parse(ENV['REDISTOGO_URL'])
+  $redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
+else
+  $redis = Redis.new
 end
