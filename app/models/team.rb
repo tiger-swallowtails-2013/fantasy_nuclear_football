@@ -17,5 +17,15 @@ class Team < ActiveRecord::Base
     teams[0...limit]
   end
 
+  def add_politician(pol)
+    if politicians.count < 8 && verify_type(pol.title)
+      politicians << pol
+    else
+      nil #TK possible error message on failure?
+    end
+  end
 
+  def verify_type(title)
+    politicians.where(title: title).count < 4
+  end
 end
