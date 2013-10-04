@@ -12,7 +12,7 @@ class Team < ActiveRecord::Base
   end
 
   def self.top_scorers(week, limit = 10)
-    teams = Team.all
+    teams = all
     teams.sort_by {|team| team.team_score(week)}.reverse
     teams[0...limit]
   end
