@@ -1,6 +1,6 @@
 class AddBios < ActiveRecord::Migration
 	def up
-		add_column :politicians, :bio, :string
+		add_column :politicians, :bio, :text
 	end
 
 	def down
