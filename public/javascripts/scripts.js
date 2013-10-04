@@ -1,7 +1,12 @@
 $('#update').on('click', function(event) {
   event.preventDefault()
-  var data=$('#team_members li')
+  var data = {
+    team_members: []
+  }
 
+  $('#team_members li').each(function() {
+    data.team_members.push($(this).attr('rel'))
+  })
   $.post(window.location.pathname, data, function(response){
      if(response==="okay"){
       $('#team_members').prepend('<p class="notification">Your team has been updated!</p>')
