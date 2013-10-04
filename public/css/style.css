@@ -153,27 +153,6 @@ img.logo{
 	border-radius:5px;
 }
 
-#timeline{
-	position:absolute;
-	right:10px;
-	top:95px;
-	width:300px;
-	height:70%;
-	overflow:hidden;
-}
-
-#cnnwidget{
-	max-width:40%;
-	position:absolute;
-	right:310px;
-	top:95px;
-}
-
-#home{
-	max-width: 40%;
-	height:500px;
-}
-
 ul.sortable{
 	list-style-type:none;
 }
