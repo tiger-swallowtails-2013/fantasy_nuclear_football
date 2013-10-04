@@ -141,16 +141,23 @@ img.logo{
 	transition: color 1s;
 }
 
-.notification{
+.notification, .uhoh{
 	padding:10px;
 	display:block;
 	left:auto;
 	right:auto;
-	background-color:#aaccff;
 	color:white;
 	text-shadow:1px 1px 1px grey;
 	font-style:italic;
 	border-radius:5px;
+}
+
+.notification{
+	background-color:#aaccff;
+}
+
+.uhoh{
+	background-color:#ffbbbb;
 }
 
 ul.sortable{
