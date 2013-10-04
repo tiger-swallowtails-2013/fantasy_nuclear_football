@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 7) do
     t.string   "title"
     t.string   "chamber"
     t.string   "bioguide_id"
+    t.string   "bio"
     t.integer  "district"
     t.integer  "senate_class"
     t.boolean  "in_office"

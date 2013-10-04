@@ -61,3 +61,7 @@ task "worker:twitter_load" do
   TweetStore.compile_tweets
 end
 
+desc "seeds the politicians database with bios"
+task "worker:politicians_bios_seed" do
+    PoliticiansImporter.seed_bios
+end
