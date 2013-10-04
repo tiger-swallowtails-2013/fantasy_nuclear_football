@@ -1,8 +1,13 @@
-<div>
-	<img src="/images/mugshots_lg/<%= @pol.bioguide_id %>.jpg">
-	<h1><%= "#{@pol.first_name} #{@pol.last_name}" %><h1>
-	<h2><%= @pol.title == "Rep" ? "Representative" : "Senator" %> of <%= @pol.state %><h2>
+<div class="politician">
+	<div id="left">
+		<img src="/images/mugshots_lg/<%= @pol.bioguide_id %>.jpg">
+	</div>
+	<div id="right">
+		<h1><%= "#{@pol.first_name} #{@pol.last_name}" %></h1>
+		<h3><%= @pol.title == "Rep" ? "Representative" : "Senator" %> of <%= @pol.state %></h3>
+		<h3>Total Score This Week: <%= @pol.total_score(1)  %> </h3>
 		<p><%= @pol.bio %></p>
+	</div>
 </div>
 
 
