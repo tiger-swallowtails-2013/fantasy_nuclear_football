@@ -39,4 +39,9 @@ class Politician < ActiveRecord::Base
     politicos[0...limit]
   end
 
+  def self.sort_by_score(week)
+    politicos = Politician.all
+    politicos.sort_by {|pol| pol.total_score(week)}.reverse
+  end
+
 end
