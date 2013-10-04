@@ -30,7 +30,7 @@ class Politician < ActiveRecord::Base
   end
 
   def total_score(week)
-    twitter_score(week) + sunlight_score(week)
+    twitter_score(week).round(2) + sunlight_score(week)
   end
 
   def self.top_scorers(week, limit = 10)
