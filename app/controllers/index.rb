@@ -36,8 +36,12 @@ post '/teams/:id' do
   clear_team!(params[:id])
   okay = 0
   params[:team_members].uniq.each do |p_id|
-    new_pol = PoliticianTeam.create(politician_id:p_id.to_i, team_id:params[:id].to_i)
-    okay+= 1 if new_pol.persisted?
+
+    team = Team.find(params[:id].to_i)
+    pol = Politician.find(p_id.to_i)
+    team.add_politician(pol)
+    association_check = PoliticianTeam.where(politician_id: p_id.to_i, team_id: params[:id].to_i)
+    okay+= 1 if association_check.count > 0
   end
   return "okay" if okay == params[:team_members].uniq.length
   "not okay :("

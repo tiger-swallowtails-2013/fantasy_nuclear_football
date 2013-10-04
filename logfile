@@ -8,3 +8,6 @@ ERROR:  relation "politicians" does not exist at character 29
 STATEMENT:  SELECT "politicians".* FROM "politicians"
 FATAL:  lock file "postmaster.pid" already exists
 HINT:  Is another postmaster (PID 45949) running in data directory "/usr/local/var/postgres"?
+LOG:  database system was shut down at 2013-10-03 23:44:00 PDT
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
