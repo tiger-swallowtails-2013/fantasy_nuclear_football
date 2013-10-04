@@ -13,8 +13,7 @@ class Team < ActiveRecord::Base
 
   def self.top_scorers(week, limit = 10)
     teams = all
-    teams.sort_by {|team| team.team_score(week)}.reverse
-    teams[0...limit]
+    teams.sort_by {|team| team.team_score(week)}.reverse[0..limit]
   end
 
   def add_politician(pol)
