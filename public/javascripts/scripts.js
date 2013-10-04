@@ -1,3 +1,13 @@
+$('#update').on('click', function(event) {
+  event.preventDefault()
+  var data=$('#team_members li')
+
+  $.post(window.location.pathname, data, function(response){
+     if(response==="okay"){
+      $('#team_members').prepend('<p class="notification">Your team has been updated!</p>')
+    }
+  })
+});
 
 ;(function() {
   $(document).ready(function() {
