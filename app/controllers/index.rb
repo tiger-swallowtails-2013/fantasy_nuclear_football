@@ -33,10 +33,7 @@ get '/teams/:id' do
 end
 
 post '/teams/:id' do
-  PoliticianTeam.where('team_id=?',params[:id]).destroy_all
-  params[:team_members].each do |playa|
-    PoliticianTeam.create(playa)
-  end
+  "okay"
 end
 
 get '/users/:id' do
