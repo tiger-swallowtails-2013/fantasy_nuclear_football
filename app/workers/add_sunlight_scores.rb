@@ -9,8 +9,13 @@ module AddSunlightScores
     sunlight_scores.each do |id|
       score = Score.find_by politician_id: id
       if score
-        score.vote_score += 1
-        score.save
+        if score.vote_score
+          score.vote_score += 1
+          score.save
+        else
+          score.vote_score = 1
+          score.save
+        end
       else
         Score.create(
           politician_id: id,
