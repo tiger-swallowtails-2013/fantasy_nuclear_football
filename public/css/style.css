@@ -146,8 +146,7 @@ img.logo{
 	display:block;
 	left:auto;
 	right:auto;
-	color:white;
-	text-shadow:1px 1px 1px grey;
+	color:black;
 	font-style:italic;
 	border-radius:5px;
 }
@@ -157,7 +156,7 @@ img.logo{
 }
 
 .uhoh{
-	background-color:#ffbbbb;
+	background-color:#ffaaaa;
 }
 
 ul.sortable{
