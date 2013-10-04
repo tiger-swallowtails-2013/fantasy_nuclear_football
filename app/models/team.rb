@@ -8,7 +8,7 @@ class Team < ActiveRecord::Base
   def team_score(week)
     sum = 0
     politicians.each {|pol| sum += pol.total_score(week)}
-    sum
+    sum.round(2)
   end
 
   def self.top_scorers(week, limit = 10)
