@@ -33,18 +33,15 @@ get '/teams/:id' do
 end
 
 post '/teams/:id' do
+  puts params
+  previous_team = Team.find(params[:id].to_i).politicians.map{|pol| pol.id}
   clear_team!(params[:id])
-  okay = 0
-  params[:team_members].uniq.each do |p_id|
-
-    team = Team.find(params[:id].to_i)
-    pol = Politician.find(p_id.to_i)
-    team.add_politician(pol)
-    association_check = PoliticianTeam.where(politician_id: p_id.to_i, team_id: params[:id].to_i)
-    okay+= 1 if association_check.count > 0
-  end
-  return "okay" if okay == params[:team_members].uniq.length
-  "not okay :("
+  a = populate_team_with(params[:team_members].uniq.map{|i| i.to_i}, "okay")
+  return a if a == "okay"
+  clear_team!(params[:id])
+  a = populate_team_with(previous_team, "not okay")
+  return a if a == "not okay"
+  "error"
 end
 
 get '/users/:id' do
@@ -114,5 +111,18 @@ helpers do
 
   def clear_team!(id)
     PoliticianTeam.where('team_id=?',id).destroy_all
+  end
+
+  def populate_team_with(array, response)
+    okay=0
+    team = Team.find(params[:id].to_i)
+    array.each do |p_id|
+      pol = Politician.find(p_id)
+      team.add_politician(pol)
+      association_check = PoliticianTeam.where(politician_id: p_id.to_i, team_id: params[:id].to_i)
+      okay+= 1 if association_check.count > 0
+    end
+    puts "#{response}" if okay==array.length
+    return response if okay == array.length
   end
 end

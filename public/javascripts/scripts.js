@@ -11,6 +11,15 @@ $('#update').on('click', function(event) {
      if(response==="okay"){
       $('#team_members').prepend('<p class="notification">Your team has been updated!</p>')
     }
+    else if(response === "not okay"){
+      $('#team_members').prepend('<p class="uhoh">Your team could not be updated at this time</p>')
+    }
+    else if(response === "error"){
+      $('#team_members').prepend('<p class="uhoh">Something went wrong. Please rebuild your team</p>')
+    }
+    else{
+      console.log("how did you get here?")
+    }
   })
 });
 
