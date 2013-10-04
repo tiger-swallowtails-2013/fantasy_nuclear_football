@@ -33,7 +33,6 @@ get '/teams/:id' do
 end
 
 post '/teams/:id' do
-  puts params
   previous_team = Team.find(params[:id].to_i).politicians.map{|pol| pol.id}
   clear_team!(params[:id])
   a = populate_team_with(params[:team_members].uniq.map{|i| i.to_i}, "okay")
