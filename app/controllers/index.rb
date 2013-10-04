@@ -100,16 +100,11 @@ helpers do
   end
 
   def current_user
+    return nil if User.all.size<1
     if session[:user_id]
       @user ||= User.find(session[:user_id])
-      if @user
-        return @user
-      else
-        session.clear
-        return nil
-      end
     else
-      return nil
+      nil
     end
   end
 
