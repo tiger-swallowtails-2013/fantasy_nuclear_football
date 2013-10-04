@@ -14,7 +14,7 @@ class Politician < ActiveRecord::Base
   def twitter_score(week)
     pol_score = scores.where(game_number: week)[0]
     if pol_score && pol_score.twitter_mentions
-      pol_score.twitter_mentions.to_f / 20
+      (pol_score.twitter_mentions.to_f / 20).round(2)
     else
       0
     end
