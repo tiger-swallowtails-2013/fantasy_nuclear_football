@@ -177,3 +177,12 @@ img.pol{
 	height:30px;
 	width:24px;
 }
+
+th, td{
+	text-align:left;
+	padding:10px;
+}
+
+th{
+	border-bottom:1px solid black;
+}
