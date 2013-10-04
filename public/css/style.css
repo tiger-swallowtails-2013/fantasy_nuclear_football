@@ -154,11 +154,22 @@ img.logo{
 }
 
 #timeline{
-	display: inline-block;
-	right:0px;
-	top:50px;
+	position:absolute;
+	right:10px;
+	top:75px;
+	width:300px;
+	height:70%;
+	overflow:hidden;
+}
+
+#cnnwidget{
+	max-width:40%;
+	position:absolute;
+	right:310px;
+	top:75px;
 }
 
 #home{
-	max-width: 30%;
+	max-width: 40%;
+	height:500px;
 }
