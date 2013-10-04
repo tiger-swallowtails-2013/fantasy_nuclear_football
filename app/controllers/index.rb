@@ -100,13 +100,16 @@ helpers do
   end
 
   def current_user
-    @user ||= User.find(session[:user_id])
-    if session[:user_id] && @user
-      @user
-    elsif session[:user_id]
-      session.clear
+    if session[:user_id]
+      @user ||= User.find(session[:user_id])
+      if @user
+        return @user
+      else
+        session.clear
+        return nil
+      end
     else
-      nil
+      return nil
     end
   end
 
