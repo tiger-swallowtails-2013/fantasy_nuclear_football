@@ -37,7 +37,17 @@
 			<% end %>
 		</ul>
 	</nav>
-	<div class="main">		
+	<% if current_user %>
+	<nav class="menu_div">
+		<ul>
+			<a href="/"><li>Home</li></a>
+			<a href="/users/<%= current_user.id %>"><li>Profile</li></a>
+			<a href="/teams/<%= current_user.teams.first.id %>"><li>My Team</li></a>
+			<a href="/politicians"><li>Politicians</li></a>
+		</ul>
+	</nav>
+	<% end %>
+	<div class="main<%= ' login' if current_user %>">
 		<%= yield %>
 	</div>
 </body>
