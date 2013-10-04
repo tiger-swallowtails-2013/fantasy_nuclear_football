@@ -64,6 +64,12 @@ get '/politicians/:id' do
   erb :politician
 end
 
+get '/politicianslist' do
+  @politicians = Politician.all.sort_by { |p| p.first_name }
+  p @politicians
+  erb :politicianslist
+end
+
 get '/logout' do
   session.clear
   redirect '/'
