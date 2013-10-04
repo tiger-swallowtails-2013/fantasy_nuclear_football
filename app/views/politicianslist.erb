@@ -4,6 +4,8 @@
 		<td></td>
 		<td>Politician Name</td>
 		<td>Total Score</td>
+		<td>Twitter Score</td>
+		<td>Policy Score</td>
 	</tr>
 	<% @politicians.each_with_index do |sleazeball, index| %>
 	<% if index < 25 %>
@@ -11,6 +13,8 @@
 		<td><span class="name"><img src="/images/mugshots_sm/<%= sleazeball.bioguide_id %>.jpg" class="pol"></span></td>
 		<td><a href="politicians/<%= sleazeball.id %>"><%= sleazeball.info %></a></td>
 		<td><%= sleazeball.total_score(1) %></td>
+		<td><%= sleazeball.twitter_score(1) %></td>
+		<td><%= sleazeball.sunlight_score(1) %></td>
 	</tr>
 	<% end %>
 	<% end %>
