@@ -111,6 +111,10 @@ img.logo{
 	z-index:20;
 }
 
+.politician{
+	margin: 20px;
+}
+
 .main{
 	z-index:5;
 	margin:0px;
