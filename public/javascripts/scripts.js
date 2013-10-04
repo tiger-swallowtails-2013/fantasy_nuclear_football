@@ -1,5 +1,9 @@
 $('#update').on('click', function(event) {
   event.preventDefault()
+
+  $('.notification').remove()
+  $('.uhoh').remove()
+
   var data = {
     team_members: []
   }
@@ -10,6 +14,12 @@ $('#update').on('click', function(event) {
   $.post(window.location.pathname, data, function(response){
      if(response==="okay"){
       $('#team_members').prepend('<p class="notification">Your team has been updated!</p>')
+    }
+    else if(response === "not okay"){
+      $('#team_members').prepend('<p class="uhoh">You are over the maximum team limit (four senators, four congressmen). Please rearrange and try again.</p>')
+    }
+    else if(response === "error"){
+      $('#team_members').prepend('<p class="uhoh">Something went wrong. Please rebuild your team</p>')
     }
   })
 });
