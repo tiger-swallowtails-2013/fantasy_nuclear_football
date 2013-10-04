@@ -6,7 +6,7 @@ require "sinatra/json"
 enable :sessions
 
 get '/' do
-  @all_users = User.all
+  @top_teams = Team.top_scorers(1)
   erb :index
 end
 

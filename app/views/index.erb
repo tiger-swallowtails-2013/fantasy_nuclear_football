@@ -1,15 +1,38 @@
 <div id="home">
-<% if current_user.nil? %>
+  <% if current_user.nil? %>
   <p>Fantasy Nuclear Football is a fantasy politics game. And it is awesome.</p>
   <p>Click "Login" above to log in with Facebook.</p>
-<% else %>
+  <% else %>
   <p>Welcome, <%= current_user.firstname %>!</p>
-<% end %>
-<div id="title"><strong>Users playing:</strong></div>
-
-<ul>
-  <% @all_users.each do |one_user| %>
-    <li><a href="/users/<%= one_user.id %>"><%= one_user.firstname %> <%= one_user.lastname %></a></li>
   <% end %>
-</ul>	
+  <div id="title"><strong>Top scores:</strong></div>
+
+  <table>
+    <tr>
+      <th>
+        User
+      </th>
+      <th>
+        Team
+      </th>
+      <th>
+        Score
+      </th>
+    </tr>
+    <% @top_teams.each do |team| %>
+    <tr>
+      <td><a href="/users/<%= team.user.id %>">
+        <%= team.user.firstname %> <%= team.user.lastname %>
+      </a>
+    </td>
+    <td>
+      <a href="/teams/<%= team.id %>">
+        <%= team.name %>
+      </a>
+    </td>
+    <td>
+      <%= team.team_score(1) %>
+    </td>
+  </tr>
+  <% end %>
 </div>
