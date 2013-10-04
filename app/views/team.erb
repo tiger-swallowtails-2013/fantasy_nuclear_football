@@ -4,7 +4,7 @@
   <ul class="sortable" style="min-height: 10px;">
     <% unless @queried_team.politicians.nil? %>
       <% @queried_team.politicians.each_with_index do |sleazeball, index| %>
-        <li class="pol-<%= index %>" rel="<%= sleazeball.id %>"><%= sleazeball.info %></li>
+        <li class="name pol-<%= index %>" rel="<%= sleazeball.id %>"><img src="/images/mugshots_sm/<%= sleazeball.bioguide_id %>.jpg" class="pol"> <%= sleazeball.info %></li>
       <% end %>
     <% end %>
   </ul>
@@ -17,7 +17,7 @@
     <ul class="sortable">
       <% @politicians.each_with_index do |sleazeball, index| %>
         <li class="pol-<%= index %>" rel="<%= sleazeball.id %>">
-          <span class="name"><%= sleazeball.info %></span>
+          <span class="name"><img src="/images/mugshots_sm/<%= sleazeball.bioguide_id %>.jpg" class="pol"> <%= sleazeball.info %></span>
         </li>
       <% end %>
     </ul>
@@ -27,7 +27,7 @@
     <ul>
       <% @politicians.each_with_index do |sleazeball, index| %>
         <li class="pol-<%= index %>" rel="<%= sleazeball.id %>">
-          <span class="name"><%= sleazeball.info %></span>
+          <span class="name"><img src="/images/mugshots_sm/<%= sleazeball.bioguide_id %>.jpg" class="pol"> <%= sleazeball.info %></span>
         </li>
       <% end %>
     </ul>
