@@ -21,6 +21,7 @@ desc "seed the politicians database"
 task "db:seed" do
 	puts "seeding with only the corrupt politicians"
 	PoliticiansImporter.import
+  PoliticiansImporter.seed_bios
 end
 begin
   require 'jasmine'
@@ -61,3 +62,7 @@ task "worker:twitter_load" do
   TweetStore.compile_tweets
 end
 
+desc "seeds the politicians database with bios"
+task "worker:politicians_bios_seed" do
+    PoliticiansImporter.seed_bios
+end

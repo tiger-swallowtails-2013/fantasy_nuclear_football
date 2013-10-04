@@ -11,6 +11,7 @@ gem 'pg'
 gem 'tweetstream'
 gem 'redis'
 gem 'congress'
+gem 'nokogiri'
 
 group :development, :test do
   gem 'shotgun'
