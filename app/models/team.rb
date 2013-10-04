@@ -4,4 +4,18 @@ class Team < ActiveRecord::Base
   has_many :politicians, through: :politician_teams
   validates :user_id, uniqueness: true
   validates :name, presence: true
+
+  def team_score(week)
+    sum = 0
+    politicians.each {|pol| sum += pol.total_score(week)}
+    sum
+  end
+
+  def self.top_scorers(week, limit = 10)
+    teams = Team.all
+    teams.sort_by {|team| team.team_score(week)}.reverse
+    teams[0...limit]
+  end
+
+
 end
