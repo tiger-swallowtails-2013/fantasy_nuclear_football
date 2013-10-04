@@ -4,16 +4,14 @@ module TweetStore
 
 	def self.compile_tweets
 
-		db = REDIS
-
 		tweet_hash = {}
-		entries = db.LLEN(twitter_mentions)
+		entries = $redis.LLEN('twitter_mentions')
 		entries.times do
-			mention = db.LPOP(twitter_mentions)
+			mention = $redis.LPOP('twitter_mentions')
 			tweet_hash[mention.to_sym].nil? ? tweet_hash[mention.to_sym] = 1 : tweet_hash[mention.to_sym]+=1
 		end
 
-		db.flushall
+		$redis.flushall
 		tweets = transform_for_database(tweet_hash)
 		p tweets
 		push_to_database(tweets)
