@@ -32,4 +32,14 @@ class PoliticiansImporter
 			end
 		end
 	end
+
+	def self.seed_bios
+		Politician.all.each do |politician|
+			if(politician.bio.nil?)
+				page = Nokogiri::HTML(open("http://bioguide.congress.gov/scripts/biodisplay.pl?index=#{politician.bioguide_id}"))
+				politician.bio = page.css('p')[0].text
+				politician.save
+			end
+		end
+	end
 end

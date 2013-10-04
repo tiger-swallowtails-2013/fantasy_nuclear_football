@@ -18,16 +18,17 @@ nav{
 	z-index:10;
 	display:block;
 	margin:0px;
-	background: white;
+	background: #777;
 	border-bottom:1px solid grey;
-	color:grey;
+	color:white;
 	border-top-right-radius:10px;
 	border-top-left-radius:10px;
 	overflow:hidden;
 }
 
 nav a{
-	color:grey;
+	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+	color:white;
 	text-decoration: none;
 }
 
@@ -106,4 +107,26 @@ img.logo{
 .button:hover{
 	color:blue;
 	transition: color 1s;
+}
+
+.notification{
+	padding:10px;
+	display:block;
+	left:auto;
+	right:auto;
+	background-color:#aaccff;
+	color:white;
+	text-shadow:1px 1px 1px grey;
+	font-style:italic;
+	border-radius:5px;
+}
+
+#timeline{
+	display: inline-block;
+	right:0px;
+	top:50px;
+}
+
+#home{
+	max-width: 30%;
 }
