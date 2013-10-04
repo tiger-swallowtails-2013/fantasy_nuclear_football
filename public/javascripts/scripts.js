@@ -1,5 +1,9 @@
 $('#update').on('click', function(event) {
   event.preventDefault()
+
+  $('.notification').remove()
+  $('.uhoh').remove()
+
   var data = {
     team_members: []
   }
