@@ -11,4 +11,19 @@ class Politician < ActiveRecord::Base
   	all.delete_if{ |politician| politician.in_office == false || politician.twitter_id.nil? }.map{ |politician| politician.twitter_id }.map!{|politician| "@#{politician}"}
   end
 
+  def total_score(week)
+    pol_score = scores.where(game_number: week)[0]
+    if pol_score
+      (pol_score.twitter_mentions / 20) + (pol_score.vote_score * 5)
+    else
+      0
+    end
+  end
+
+  def self.top_scorers(week, limit = 10)
+    politicos = Politician.all
+    politicos.sort_by {|pol| pol.total_score(week)}.reverse
+    politicos[0...limit]
+  end
+
 end
