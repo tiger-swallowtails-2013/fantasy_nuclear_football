@@ -28,10 +28,9 @@ module TwitterStream
 	end
 
 	def self.push(tweet, twitter_handles)
-		db = REDIS
 		filter_tweet(tweet).each do |mention|
 			if(twitter_handles.include? mention)
-				db.RPUSH(twitter_mentions, mention)
+				$redis.RPUSH('twitter_mentions', mention)
 			end
 		end
 	end
