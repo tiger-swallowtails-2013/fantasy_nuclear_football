@@ -1,6 +1,14 @@
-<div>senator/representative <%= @pol.last_name %>:</div>
+<div>
+	<img src="/images/mugshots_lg/<%= @pol.bioguide_id %>.jpg">
+	<h1><%= "#{@pol.first_name} #{@pol.last_name}" %><h1>
+	<h2><%= @pol.title == "Rep" ? "Representative" : "Senator" %> of <%= @pol.state %><h2>
+		<p><%= @pol.bio %></p>
+</div>
 
+
+<!-- 
 <% if @score %>
   <div><%= @pol.first_name %> had <%= @score.twitter_mentions %> mentions on twitter</div>
 <% end %>
 
+ -->
