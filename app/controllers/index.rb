@@ -69,8 +69,7 @@ get '/politicians/:id' do
 end
 
 get '/politicianslist' do
-  @politicians = Politician.all.sort_by { |p| p.first_name }
-  p @politicians
+  @politicians = Politician.all.sort_by_score(1)
   erb :politicianslist
 end
 
