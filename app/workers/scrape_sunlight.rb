@@ -1,8 +1,8 @@
 require 'congress'
 require_relative '../../config/main.rb'
 
-# Congress.key = ENV['SUNLIGHT_LEGISLATORS_KEY']
-Congress.key = 'b4a075b0ee6b4978835984db7173a173'
+Congress.key = ENV['SUNLIGHT_LEGISLATORS_KEY']
+
 
 
 module SunlightScraper
