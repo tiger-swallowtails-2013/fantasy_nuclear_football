@@ -43,7 +43,7 @@
 			<a href="/"><li>Home</li></a>
 			<a href="/users/<%= current_user.id %>"><li>Profile</li></a>
 			<a href="/teams/<%= current_user.teams.empty? ? "create" : current_user.teams.first.id %>"><li>My Team</li></a>
-			<a href="/politicians"><li>Politicians</li></a>
+			<a href="/politicianslist"><li>Politicians</li></a>
 		</ul>
 	</nav>
 	<% end %>
