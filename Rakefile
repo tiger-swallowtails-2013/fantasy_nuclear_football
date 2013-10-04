@@ -21,7 +21,6 @@ desc "seed the politicians database"
 task "db:seed" do
 	puts "seeding with only the corrupt politicians"
 	PoliticiansImporter.import
-  PoliticiansImporter.seed_bios
 end
 begin
   require 'jasmine'
