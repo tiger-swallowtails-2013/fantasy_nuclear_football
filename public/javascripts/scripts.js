@@ -21,9 +21,6 @@ $('#update').on('click', function(event) {
     else if(response === "error"){
       $('#team_members').prepend('<p class="uhoh">Something went wrong. Please rebuild your team</p>')
     }
-    else{
-      console.log("how did you get here?")
-    }
   })
 });
 
